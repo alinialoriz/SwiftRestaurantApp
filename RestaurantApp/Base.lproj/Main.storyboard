@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Golden Dragon" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHT-7O-s8l">
-                                <rect key="frame" x="147.5" y="198" width="119.5" height="20.5"/>
+                                <rect key="frame" x="147.5" y="154" width="119.5" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8Jn-SP-I3o">
-                                <rect key="frame" x="107" y="374" width="200" height="51"/>
+                                <rect key="frame" x="107" y="330" width="200" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="02g-qJ-jCM"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="rib-QW-sXd"/>
@@ -35,13 +35,13 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Management App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbm-bO-1eZ">
-                                <rect key="frame" x="111" y="226" width="192" height="21"/>
+                                <rect key="frame" x="111" y="182" width="192" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDX-Zg-VhZ">
-                                <rect key="frame" x="147" y="529" width="120" height="32"/>
+                                <rect key="frame" x="147" y="485" width="120" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="1Q6-DF-gS7"/>
@@ -55,7 +55,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select user type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeA-ky-VFI">
-                                <rect key="frame" x="151" y="340" width="112" height="18"/>
+                                <rect key="frame" x="151" y="296" width="112" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -77,19 +77,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="gU1-Rv-2P5">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="Sxy-zZ-ZD8"/>
+                        <barButtonItem key="backBarButtonItem" title="Home" id="Sxy-zZ-ZD8"/>
                     </navigationItem>
                     <connections>
                         <outlet property="userSelector" destination="8Jn-SP-I3o" id="Dwl-0F-9CI"/>
                         <segue destination="tzn-0M-X3h" kind="show" identifier="waitStaffSegue" id="RK6-Ih-jUt"/>
-                        <segue destination="37I-pI-R3g" kind="show" identifier="adminSegue" id="Xp5-cS-tGK"/>
+                        <segue destination="SO6-kA-Phk" kind="show" identifier="adminSegue" id="Xp5-cS-tGK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="132.58928571428572"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Menu Dishes-->
         <scene sceneID="1EI-Ql-Lul">
             <objects>
                 <tableViewController id="37I-pI-R3g" sceneMemberID="viewController">
@@ -112,10 +112,21 @@
                             <outlet property="delegate" destination="37I-pI-R3g" id="ff8-ln-mOA"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Menu Dishes" id="UW8-LT-eaL">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="PzF-Nf-91R"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2uz-Qc-hz1">
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="homeSegue" id="hHZ-e7-vQO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35a-jk-CM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050.7246376811595" y="471.42857142857139"/>
+            <point key="canvasLocation" x="2051" y="1165"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Rcv-th-v5g">
@@ -126,16 +137,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait Staff ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nd-G8-fZQ">
-                                <rect key="frame" x="157" y="198" width="100" height="21"/>
+                                <rect key="frame" x="157" y="154" width="100" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgS-BO-PGt">
-                                <rect key="frame" x="47" y="269" width="320" height="216"/>
+                                <rect key="frame" x="47" y="225" width="320" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q20-92-vZM">
-                                <rect key="frame" x="147" y="573" width="120" height="32"/>
+                                <rect key="frame" x="147" y="529" width="120" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="jGW-ji-ai6"/>
@@ -180,5 +191,26 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="132.58928571428572"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hUp-ky-u8F">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SO6-kA-Phk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3xQ-Y1-UaU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="37I-pI-R3g" kind="relationship" relationship="rootViewController" id="UAg-Ve-GGg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQ6-yZ-XuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2051" y="432"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hHZ-e7-vQO"/>
+    </inferredMetricsTieBreakers>
 </document>
