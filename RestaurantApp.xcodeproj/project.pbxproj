@@ -13,6 +13,7 @@
 		81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F8323591EE5000896FB /* RestaurantApp.xcdatamodeld */; };
 		81A00F8723591EE7000896FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A00F8623591EE7000896FB /* Assets.xcassets */; };
 		81A00F8A23591EE7000896FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A00F8823591EE7000896FB /* LaunchScreen.storyboard */; };
+		81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F912359A4BD000896FB /* AdminDishesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		81A00F8623591EE7000896FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81A00F8923591EE7000896FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81A00F8B23591EE7000896FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81A00F912359A4BD000896FB /* AdminDishesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDishesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				81A00F7C23591EE5000896FB /* AppDelegate.swift */,
 				81A00F7E23591EE5000896FB /* ViewController.swift */,
+				81A00F912359A4BD000896FB /* AdminDishesTableViewController.swift */,
 				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				81A00F7F23591EE5000896FB /* ViewController.swift in Sources */,
 				81A00F7D23591EE5000896FB /* AppDelegate.swift in Sources */,
 				81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */,
+				81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
