@@ -272,6 +272,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addNewDishBtn:" destination="s4O-94-EyY" eventType="touchUpInside" id="jRR-Oe-HqN"/>
+                                    <action selector="editBtn:" destination="eWj-eZ-i7O" eventType="touchUpInside" id="QcA-4f-cVA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="V7K-8G-nCO">
