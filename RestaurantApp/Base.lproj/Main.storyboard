@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="2050.7246376811595" y="471.42857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New Dish View Controller-->
         <scene sceneID="uVV-S1-AyB">
             <objects>
-                <viewController id="s4O-94-EyY" sceneMemberID="viewController">
+                <viewController id="s4O-94-EyY" customClass="AddNewDishViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2p6-NE-Dhy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,6 +256,9 @@
                                 <state key="normal" title="Add New Dish">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addNewDishBtn:" destination="s4O-94-EyY" eventType="touchUpInside" id="yqq-TZ-rqk"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="laS-XM-8rR">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
@@ -264,7 +267,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Add New Dish" id="LDV-Dj-vu3">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="XQp-AI-QEQ"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="XQp-AI-QEQ">
+                                            <connections>
+                                                <action selector="cameraBtn:" destination="s4O-94-EyY" id="WTW-2L-HRu"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -316,6 +323,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qHk-4E-YyU"/>
                     </view>
+                    <connections>
+                        <outlet property="newDishCategory" destination="Ur2-b9-xR4" id="fgU-lL-eir"/>
+                        <outlet property="newDishImage" destination="VlC-6j-jtn" id="bAm-Rf-9er"/>
+                        <outlet property="newDishName" destination="GBh-Fl-sv0" id="deZ-Sd-oKd"/>
+                        <outlet property="newDishPrice" destination="jWj-qz-2Uw" id="4lP-MD-ZdW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfM-Cc-Sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
