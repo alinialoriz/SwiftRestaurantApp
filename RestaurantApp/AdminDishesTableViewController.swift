@@ -39,9 +39,9 @@ class AdminDishesTableViewController: UITableViewController {
         var temporaryDishes : [Dish] = []
         
         // Create 3 Dish objects: dish1, dish2, dish3
-        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 0, price: 0.00, isSelected: false)
-        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 0, price: 0.00, isSelected: false)
-        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Entrée", qty: 0, price: 0.00, isSelected: false)
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 0, price: 6.00, isSelected: false)
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 0, price: 8.00, isSelected: false)
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Entrée", qty: 0, price: 6.00, isSelected: false)
         
         // Add Dish objects into the temporaryDishes array
         temporaryDishes.append(dish1)

@@ -44,18 +44,38 @@ class AddNewDishViewController: UIViewController, UIImagePickerControllerDelegat
         }
         
         // Convert Price String input into compatible Double data type for Dish object parameter
-        let convertedPrice = Double(newDishPrice.text!)!
+        var convertedPrice = 0.00
+        if newDishPrice.text! == "" {
+            convertedPrice = 0.00
+        } else {
+            convertedPrice = Double(newDishPrice.text!)!
+        }
         
-        // Instatiate a new Dish object
-         let newDish = Dish(image: newDishImage.image!, name: newDishName.text!, category: selectedCategory!, qty: 0, price: convertedPrice, isSelected: false)
         
-        // Add newDish object to dishes array in AdminDishesTableViewController
-        adminTableViewVC.dishes.append(newDish)
-        // Reload data of the TableView
-        adminTableViewVC.dishesTableView.reloadData()
-        
-        // Collapse AddNewDishView and transfer to AdminDishesTableView on click
-        navigationController?.popViewController(animated: true)
+        var newDish : Dish
+        if (newDishName.text!.isEmpty == false) {
+            // Instatiate a new Dish object
+            newDish = Dish(image: newDishImage.image!, name: newDishName.text!, category: selectedCategory!, qty: 0, price: convertedPrice, isSelected: false)
+            // Add newDish object to dishes array in AdminDishesTableViewController
+            adminTableViewVC.dishes.append(newDish)
+            // Reload data of the TableView
+            adminTableViewVC.dishesTableView.reloadData()
+            
+            // Collapse AddNewDishView and transfer to AdminDishesTableView on click
+            navigationController?.popViewController(animated: true)
+        } else {
+            
+            let alertController = UIAlertController(title:
+                "Error Adding New Dish", message: "All input fields must be filled out",
+                                      preferredStyle: .alert)
+            
+            let alertAction = UIAlertAction(title: "Ok", style:
+                .cancel, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion:
+                nil)
+            
+        }
         
     }
     

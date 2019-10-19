@@ -23,7 +23,7 @@ class DishTableViewCell: UITableViewCell {
         dishImage.image = dish.image
         dishName.text = dish.name
         dishCategory.text = dish.category
-        dishPrice.text = "$ " + String(dish.price)
+        dishPrice.text = "$ " + String(format: "%.2f", dish.price)
     }
     
     override func awakeFromNib() {
