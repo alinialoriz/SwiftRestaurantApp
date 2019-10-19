@@ -13,6 +13,7 @@ import UIKit
 // the following properties: name, category, qty, price, isSelected
 class Dish : NSObject {
     
+    var image : UIImage
     var name : String
     var category : String
     var qty : Int
@@ -20,7 +21,9 @@ class Dish : NSObject {
     var isSelected : Bool
     
     // initialize Dish object
-    init ( name : String, category : String, qty: Int, price : Double, isSelected: Bool) {
+    init ( image : UIImage, name : String, category : String, qty: Int, price : Double, isSelected: Bool) {
+        
+        self.image = image
         self.name = name
         self.category = category
         self.qty = qty

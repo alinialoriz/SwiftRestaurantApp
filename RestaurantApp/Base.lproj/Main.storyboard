@@ -168,6 +168,12 @@
                                         <constraint firstItem="U03-L5-2kb" firstAttribute="leading" secondItem="7KT-wX-6yy" secondAttribute="leading" constant="12" id="zKj-nG-eOj"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dishCategory" destination="wfg-2Y-oQw" id="iUg-P5-mNH"/>
+                                    <outlet property="dishImage" destination="U03-L5-2kb" id="p9J-PZ-cxx"/>
+                                    <outlet property="dishName" destination="Mfd-DT-ARC" id="av4-Hh-XtJ"/>
+                                    <outlet property="dishPrice" destination="jnl-Ag-xfB" id="fOI-c9-rPy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

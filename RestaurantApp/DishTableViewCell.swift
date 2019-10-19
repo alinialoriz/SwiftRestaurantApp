@@ -10,6 +10,22 @@ import UIKit
 
 class DishTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dishImage: UIImageView!
+    @IBOutlet weak var dishName: UILabel!
+    @IBOutlet weak var dishCategory: UILabel!
+    @IBOutlet weak var dishPrice: UILabel!
+    
+    //A function to populate a dish cell with the
+    //value of a dish object
+    
+    func setDish(dish : Dish) {
+        
+        dishImage.image = dish.image
+        dishName.text = dish.name
+        dishCategory.text = dish.category
+        dishPrice.text = "$ " + String(dish.price)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
