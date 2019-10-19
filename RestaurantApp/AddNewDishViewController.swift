@@ -11,7 +11,7 @@ import UIKit
 class AddNewDishViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // Create a variable that holds a reference to AdminDishesTableView
-    var adminTableView = AdminDishesTableViewController()
+    var adminTableViewVC = AdminDishesTableViewController()
     
     // Create a variable that holds an ImagePickerController
     var imagePicker = UIImagePickerController()
@@ -43,8 +43,19 @@ class AddNewDishViewController: UIViewController, UIImagePickerControllerDelegat
             selectedCategory = "Dessert"
         }
         
+        // Convert Price String input into compatible Double data type for Dish object parameter
+        let convertedPrice = Double(newDishPrice.text!)!
+        
         // Instatiate a new Dish object
-        // let dish = Dish()
+         let newDish = Dish(image: newDishImage.image!, name: newDishName.text!, category: selectedCategory!, qty: 0, price: convertedPrice, isSelected: false)
+        
+        // Add newDish object to dishes array in AdminDishesTableViewController
+        adminTableViewVC.dishes.append(newDish)
+        // Reload data of the TableView
+        adminTableViewVC.dishesTableView.reloadData()
+        
+        // Collapse AddNewDishView and transfer to AdminDishesTableView on click
+        navigationController?.popViewController(animated: true)
         
     }
     
@@ -55,12 +66,13 @@ class AddNewDishViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    //Set the UIImageView to the chosen image from the iphone camera roll
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             newDishImage.image = chosenImage
         }
         
-        //Collapses image picker view when an image has been chosen
+        //Collapses image picker view when an image has been chosen from the camera roll
         imagePicker.dismiss(animated: true, completion: nil)
     }
 

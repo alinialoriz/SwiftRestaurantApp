@@ -64,7 +64,7 @@ class AdminDishesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Get dish object from dishes array at a specific index
-        var dish = dishes[indexPath.row]
+        let dish = dishes[indexPath.row]
         
         // Populate a cell with the values of the current dish object
         let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
@@ -75,6 +75,15 @@ class AdminDishesTableViewController: UITableViewController {
 
         return cell
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Override to prepare segue and pass reference of this ViewController to AddNewDishViewController
+        let addNewDishVC = segue.destination as! AddNewDishViewController
+        addNewDishVC.adminTableViewVC = self
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
