@@ -12,6 +12,10 @@ import UIKit
 
 class AdminDishesTableViewController: UITableViewController {
     
+    
+    // Create an array that contains Dish objects
+    var dishes : [Dish] = []
+    
     // Implement a segue for addBtn to move to Add New Dish form view
     @IBAction func addBtn(_ sender: Any) {
         performSegue(withIdentifier: "addNewDishSegue", sender: nil)
@@ -19,20 +23,35 @@ class AdminDishesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // Call createArray function and populate the dishes array
+        
+        dishes = createArray()
+    }
+    
+    // A function that creates a temporary array containing Dish objects
+    // which will be passed into the dishes array
+    
+    func createArray() -> [Dish] {
+        
+        // Create a temporary array containing Dish objects
+        var temporaryDishes : [Dish] = []
+        
+        // Create 3 Dish objects: dish1, dish2, dish3
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 0, price: 0.00, isSelected: false)
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 0, price: 0.00, isSelected: false)
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Entrée", qty: 0, price: 0.00, isSelected: false)
+        
+        // Add Dish objects into the temporaryDishes array
+        temporaryDishes.append(dish1)
+        temporaryDishes.append(dish2)
+        temporaryDishes.append(dish3)
+        
+        // return a Dish array when this function is called
+        return temporaryDishes
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
