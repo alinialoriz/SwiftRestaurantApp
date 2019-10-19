@@ -8,8 +8,11 @@
 
 import UIKit
 
-class AdminDishesTableViewController: UITableViewController {
+//This class handles the TableView of the Admin user
 
+class AdminDishesTableViewController: UITableViewController {
+    
+    // Implement a segue for addBtn to move to Add New Dish form view
     @IBAction func addBtn(_ sender: Any) {
         performSegue(withIdentifier: "addNewDishSegue", sender: nil)
     }
