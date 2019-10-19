@@ -12,6 +12,7 @@ import UIKit
 
 class AdminDishesTableViewController: UITableViewController {
     
+    @IBOutlet var dishesTableView: UITableView!
     
     // Create an array that contains Dish objects
     var dishes : [Dish] = []
@@ -54,19 +55,26 @@ class AdminDishesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        //Set number of table view rows according to number of items in dishes array
+        return dishes.count
     }
-
-    /*
+    
+    // Populate each table view cell with a specific dish object
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        // Get dish object from dishes array at a specific index
+        var dish = dishes[indexPath.row]
+        
+        // Populate a cell with the values of the current dish object
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
 
-        // Configure the cell...
+            // Call the setDish function of the DishTableViewCell class
+            // and pass current dish object to populate cell properties
+            cell.setDish(dish: dish)
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
