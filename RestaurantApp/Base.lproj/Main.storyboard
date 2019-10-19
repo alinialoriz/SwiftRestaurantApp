@@ -323,7 +323,10 @@
                         <viewLayoutGuide key="safeArea" id="DlJ-pc-J0o"/>
                     </view>
                     <connections>
+                        <outlet property="selectedDishCategory" destination="x45-Xn-bbr" id="On6-f1-gVd"/>
+                        <outlet property="selectedDishImage" destination="PNo-bJ-DDx" id="C9v-Tz-zFK"/>
                         <outlet property="selectedDishName" destination="V7K-8G-nCO" id="NvU-am-stS"/>
+                        <outlet property="selectedDishPrice" destination="IGd-Kf-tQP" id="eBQ-CP-C8q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEK-g1-Tyb" userLabel="First Responder" sceneMemberID="firstResponder"/>

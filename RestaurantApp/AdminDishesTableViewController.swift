@@ -19,6 +19,8 @@ class AdminDishesTableViewController: UITableViewController {
     var mainDishes : [Dish] = []
     var dessertDishes : [Dish] = []
     
+    var indexPathSelected : Int = 0
+    
     // Implement a segue for addBtn to move to Add New Dish form view
     @IBAction func addBtn(_ sender: Any) {
         performSegue(withIdentifier: "addNewDishSegue", sender: nil)
@@ -173,6 +175,7 @@ class AdminDishesTableViewController: UITableViewController {
             if let dish = sender as? Dish {
                 editDishVC.selectedDish = dish
                 editDishVC.adminTableViewVC = self
+                editDishVC.selectedRowInt = indexPathSelected
             }
         }
         
@@ -209,21 +212,21 @@ class AdminDishesTableViewController: UITableViewController {
         // Check section number index
         let dish = indexPath.section
         //Get the row number for selected on the TableView
-        let indexPathSelected = tableView.indexPathForSelectedRow!
+        let indexPathRow = tableView.indexPathForSelectedRow!
     
+        indexPathSelected = indexPathRow.row
         var dishInfo : Dish
     
         // Display dish object in its designated section
         if dish == 0 {
-            dishInfo = entreeDishes[indexPathSelected.row]
+            dishInfo = entreeDishes[indexPathSelected]
         } else if dish == 1 {
-            dishInfo = mainDishes[indexPathSelected.row]
+            dishInfo = mainDishes[indexPathSelected]
         } else {
-            dishInfo = dessertDishes[indexPathSelected.row]
+            dishInfo = dessertDishes[indexPathSelected]
         }
     
         performSegue(withIdentifier: "editDishSegue", sender: dishInfo)
-    
     }
     
 
