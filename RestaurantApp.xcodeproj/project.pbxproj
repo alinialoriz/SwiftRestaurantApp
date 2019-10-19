@@ -15,6 +15,7 @@
 		81A00F8A23591EE7000896FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A00F8823591EE7000896FB /* LaunchScreen.storyboard */; };
 		81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F912359A4BD000896FB /* AdminDishesTableViewController.swift */; };
 		81A00F96235ACBA9000896FB /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F95235ACBA9000896FB /* DishTableViewCell.swift */; };
+		81A00F98235ADF25000896FB /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F97235ADF25000896FB /* Dish.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		81A00F8B23591EE7000896FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81A00F912359A4BD000896FB /* AdminDishesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDishesTableViewController.swift; sourceTree = "<group>"; };
 		81A00F95235ACBA9000896FB /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
+		81A00F97235ADF25000896FB /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				81A00F7E23591EE5000896FB /* ViewController.swift */,
 				81A00F912359A4BD000896FB /* AdminDishesTableViewController.swift */,
 				81A00F95235ACBA9000896FB /* DishTableViewCell.swift */,
+				81A00F97235ADF25000896FB /* Dish.swift */,
 				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 				81A00F7F23591EE5000896FB /* ViewController.swift in Sources */,
 				81A00F96235ACBA9000896FB /* DishTableViewCell.swift in Sources */,
 				81A00F7D23591EE5000896FB /* AppDelegate.swift in Sources */,
+				81A00F98235ADF25000896FB /* Dish.swift in Sources */,
 				81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */,
 				81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */,
 			);
