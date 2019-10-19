@@ -15,7 +15,9 @@ class AdminDishesTableViewController: UITableViewController {
     @IBOutlet var dishesTableView: UITableView!
     
     // Create an array that contains Dish objects
-    var dishes : [Dish] = []
+    var entreeDishes : [Dish] = []
+    var mainDishes : [Dish] = []
+    var dessertDishes : [Dish] = []
     
     // Implement a segue for addBtn to move to Add New Dish form view
     @IBAction func addBtn(_ sender: Any) {
@@ -27,13 +29,14 @@ class AdminDishesTableViewController: UITableViewController {
         
         // Call createArray function and populate the dishes array
         
-        dishes = createArray()
+        entreeDishes = createEntreeArray()
+        mainDishes = createMainArray()
+        dessertDishes = createDessertArray()
     }
     
-    // A function that creates a temporary array containing Dish objects
-    // which will be passed into the dishes array
-    
-    func createArray() -> [Dish] {
+    // A function that creates a temporary array containing Entree Dish objects
+    // which will be passed into the entree dishes array
+    func createEntreeArray() -> [Dish] {
         
         // Create a temporary array containing Dish objects
         var temporaryDishes : [Dish] = []
@@ -51,28 +54,112 @@ class AdminDishesTableViewController: UITableViewController {
         // return a Dish array when this function is called
         return temporaryDishes
     }
+    
+    // A function that creates a temporary array containing Main Dish objects
+    // which will be passed into the main dishes array
+    func createMainArray() -> [Dish] {
+        
+        // Create a temporary array containing Dish objects
+        var temporaryDishes : [Dish] = []
+        
+        // Create 3 Dish objects: dish1, dish2, dish3
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Main", qty: 0, price: 6.00, isSelected: false)
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 0, price: 8.00, isSelected: false)
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Main", qty: 0, price: 6.00, isSelected: false)
+        
+        // Add Dish objects into the temporaryDishes array
+        temporaryDishes.append(dish1)
+        temporaryDishes.append(dish2)
+        temporaryDishes.append(dish3)
+        
+        // return a Dish array when this function is called
+        return temporaryDishes
+    }
+    
+    // A function that creates a temporary array containing Dessert Dish objects
+    // which will be passed into the dessert dishes array
+    func createDessertArray() -> [Dish] {
+        
+        // Create a temporary array containing Dish objects
+        var temporaryDishes : [Dish] = []
+        
+        // Create 3 Dish objects: dish1, dish2, dish3
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Dessert", qty: 0, price: 6.00, isSelected: false)
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Dessert", qty: 0, price: 8.00, isSelected: false)
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Dessert", qty: 0, price: 6.00, isSelected: false)
+        
+        // Add Dish objects into the temporaryDishes array
+        temporaryDishes.append(dish1)
+        temporaryDishes.append(dish2)
+        temporaryDishes.append(dish3)
+        
+        // return a Dish array when this function is called
+        return temporaryDishes
+    }
 
     // MARK: - Table view data source
+    
+    //Set the headers for each TableView section
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.backgroundColor = UIColor.black
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 18.0)
+        
+        if section == 0 {
+            label.text = "Entree Dishes"
+        } else if section == 1 {
+            label.text = "Main Dishes"
+        } else {
+            label.text = "Dessert Dishes"
+        }
+        
+        return label
+    }
+    
+    //Set number of sections for TableView
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //Set number of table view rows according to number of items in dishes array
-        return dishes.count
+        //Set number of table view rows for Entree section according to number of items in entree dishes array
+        
+        if section == 0 {
+            return entreeDishes.count
+        } else if section == 1 {
+            return mainDishes.count
+        } else {
+            return dessertDishes.count
+        }
+        
     }
     
     // Populate each table view cell with a specific dish object
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Get dish object from dishes array at a specific index
-        let dish = dishes[indexPath.row]
+        // Check section number index
+        let dish = indexPath.section
+        var dishInfo : Dish
+        
+        // Display dish object in its designated section
+        if dish == 0 {
+            dishInfo = entreeDishes[indexPath.row]
+        } else if dish == 1 {
+            dishInfo = mainDishes[indexPath.row]
+        } else {
+            dishInfo = dessertDishes[indexPath.row]
+        }
         
         // Populate a cell with the values of the current dish object
         let cell = tableView.dequeueReusableCell(withIdentifier: "dishCell", for: indexPath) as! DishTableViewCell
 
             // Call the setDish function of the DishTableViewCell class
             // and pass current dish object to populate cell properties
-            cell.setDish(dish: dish)
-
+            cell.setDish(dish: dishInfo)
+        
         return cell
     }
     
