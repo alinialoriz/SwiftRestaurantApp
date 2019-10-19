@@ -160,6 +160,9 @@
                                                 <constraint firstAttribute="width" constant="45" id="pJz-N9-nSm"/>
                                             </constraints>
                                             <state key="normal" title="Edit"/>
+                                            <connections>
+                                                <action selector="editBtn:" destination="a2o-L8-WGB" eventType="touchUpInside" id="Egc-zD-lsG"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -201,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="2050.7246376811595" y="471.42857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Dish View Controller-->
         <scene sceneID="4fp-93-XWg">
             <objects>
-                <viewController id="eWj-eZ-i7O" sceneMemberID="viewController">
+                <viewController id="eWj-eZ-i7O" customClass="EditDishViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WdF-Av-pfA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,6 +325,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DlJ-pc-J0o"/>
                     </view>
+                    <connections>
+                        <outlet property="selectedDishName" destination="V7K-8G-nCO" id="NvU-am-stS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEK-g1-Tyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

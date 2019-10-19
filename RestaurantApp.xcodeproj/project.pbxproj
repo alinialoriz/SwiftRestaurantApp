@@ -17,6 +17,7 @@
 		81A00F96235ACBA9000896FB /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F95235ACBA9000896FB /* DishTableViewCell.swift */; };
 		81A00F98235ADF25000896FB /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F97235ADF25000896FB /* Dish.swift */; };
 		81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */; };
+		81A00F9E235B5719000896FB /* EditDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F9D235B5718000896FB /* EditDishViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		81A00F95235ACBA9000896FB /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		81A00F97235ADF25000896FB /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDishViewController.swift; sourceTree = "<group>"; };
+		81A00F9D235B5718000896FB /* EditDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				81A00F95235ACBA9000896FB /* DishTableViewCell.swift */,
 				81A00F97235ADF25000896FB /* Dish.swift */,
 				81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */,
+				81A00F9D235B5718000896FB /* EditDishViewController.swift */,
 				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 				81A00F96235ACBA9000896FB /* DishTableViewCell.swift in Sources */,
 				81A00F7D23591EE5000896FB /* AppDelegate.swift in Sources */,
 				81A00F98235ADF25000896FB /* Dish.swift in Sources */,
+				81A00F9E235B5719000896FB /* EditDishViewController.swift in Sources */,
 				81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */,
 				81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */,
 				81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */,

@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import CoreData
 
 //This class handles the TableView of the Admin user
 
 class AdminDishesTableViewController: UITableViewController {
-    
+
     @IBOutlet var dishesTableView: UITableView!
     
     // Create an array that contains Dish objects
@@ -167,8 +166,15 @@ class AdminDishesTableViewController: UITableViewController {
     // Prepares segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Override to prepare segue and pass reference of this ViewController to AddNewDishViewController
-        let addNewDishVC = segue.destination as! AddNewDishViewController
-        addNewDishVC.adminTableViewVC = self
+        if let addNewDishVC = segue.destination as? AddNewDishViewController {
+            addNewDishVC.adminTableViewVC = self
+        }
+        if let editDishVC = segue.destination as? EditDishViewController {
+            if let dish = sender as? Dish {
+                editDishVC.selectedDish = dish
+                editDishVC.adminTableViewVC = self
+            }
+        }
         
     }
     
@@ -196,7 +202,29 @@ class AdminDishesTableViewController: UITableViewController {
         }
     }
     
+    // Transfer to EditDishView when cell row is selected
+   override func tableView(_ tableView: UITableView, didSelectRowAt
+        indexPath: IndexPath) {
     
+        // Check section number index
+        let dish = indexPath.section
+        //Get the row number for selected on the TableView
+        let indexPathSelected = tableView.indexPathForSelectedRow!
+    
+        var dishInfo : Dish
+    
+        // Display dish object in its designated section
+        if dish == 0 {
+            dishInfo = entreeDishes[indexPathSelected.row]
+        } else if dish == 1 {
+            dishInfo = mainDishes[indexPathSelected.row]
+        } else {
+            dishInfo = dessertDishes[indexPathSelected.row]
+        }
+    
+        performSegue(withIdentifier: "editDishSegue", sender: dishInfo)
+    
+    }
     
 
     /*
