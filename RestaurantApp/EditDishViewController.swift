@@ -8,21 +8,32 @@
 
 import UIKit
 
-class EditDishViewController: UIViewController {
+class EditDishViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedDishImage: UIImageView!
     @IBOutlet weak var selectedDishName: UITextField!
     @IBOutlet weak var selectedDishCategory: UISegmentedControl!
     @IBOutlet weak var selectedDishPrice: UITextField!
+    
     // Create a variable that holds a reference to AdminDishesTableView
     var adminTableViewVC = AdminDishesTableViewController()
     
     // Create variable to accept values passed from AdminDishesTableView
     var selectedDish = Dish(image: UIImage(named: "default-dish")!, name: "", category: "", qty: 0, price: 0.00, isSelected: false)
+    
+    // Create variable to accept index of selectedRow for AdminDishesTableView
     var selectedRowInt : Int = 0
+    
+    // Create a variable that holds an ImagePickerController
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Handle selected image from imagePicker
+        imagePicker.delegate = self
+        
+        // Set up input fields
         selectedDishImage.image = selectedDish.image
         selectedDishName.text = selectedDish.name
         
@@ -52,7 +63,7 @@ class EditDishViewController: UIViewController {
                                   preferredStyle: .alert)
         
         //If user continues with changes, update dish item
-        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler:{ action in
+        alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertAction.Style.default, handler:{ action in
             
             if self.selectedDish.category == "Entrée" {
                 //  Update the properties of the selected entree dish item
@@ -106,6 +117,23 @@ class EditDishViewController: UIViewController {
             nil)
         
         
+    }
+    
+    // Opens iphone photo library when camera icon is tapped
+    @IBAction func cameraBtn(_ sender: Any) {
+        //Trigger image picker
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    //Set the UIImageView to the chosen image from the iphone camera roll
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.selectedDishImage.image = chosenImage
+        }
+        
+        //Collapses image picker view when an image has been chosen from the camera roll
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
 }

@@ -206,7 +206,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Edit Dish" id="ZKQ-oH-gFl">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="czy-sP-eyD"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="czy-sP-eyD">
+                                            <connections>
+                                                <action selector="cameraBtn:" destination="eWj-eZ-i7O" id="t2X-5e-Dpe"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
