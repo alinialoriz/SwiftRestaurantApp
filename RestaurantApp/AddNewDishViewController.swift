@@ -57,7 +57,13 @@ class AddNewDishViewController: UIViewController, UIImagePickerControllerDelegat
             // Instatiate a new Dish object
             newDish = Dish(image: newDishImage.image!, name: newDishName.text!, category: selectedCategory!, qty: 0, price: convertedPrice, isSelected: false)
             // Add newDish object to dishes array in AdminDishesTableViewController
-            adminTableViewVC.entreeDishes.append(newDish)
+            if selectedCategory == "Entrée" {
+                adminTableViewVC.entreeDishes.append(newDish)
+            } else if selectedCategory == "Main" {
+                adminTableViewVC.mainDishes.append(newDish)
+            } else {
+                adminTableViewVC.dessertDishes.append(newDish)
+            }
             // Reload data of the TableView
             adminTableViewVC.dishesTableView.reloadData()
             
