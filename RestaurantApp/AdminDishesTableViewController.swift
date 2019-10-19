@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 //This class handles the TableView of the Admin user
 
@@ -163,13 +164,39 @@ class AdminDishesTableViewController: UITableViewController {
         return cell
     }
     
-    
+    // Prepares segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Override to prepare segue and pass reference of this ViewController to AddNewDishViewController
         let addNewDishVC = segue.destination as! AddNewDishViewController
         addNewDishVC.adminTableViewVC = self
         
     }
+    
+    // Allows table cells to be editable
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // Implement delete function when user swipes left on a table cell
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+                
+            // Check section number index
+            let dish = indexPath.section
+            
+            // Display dish object in its designated section
+            if dish == 0 {
+                entreeDishes.remove(at: indexPath.row)
+            } else if dish == 1 {
+                mainDishes.remove(at: indexPath.row)
+            } else {
+                dessertDishes.remove(at: indexPath.row)
+            }
+        dishesTableView.reloadData()
+        }
+    }
+    
+    
     
 
     /*
