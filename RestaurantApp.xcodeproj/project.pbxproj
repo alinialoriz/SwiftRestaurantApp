@@ -19,6 +19,7 @@
 		81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */; };
 		81A00F9E235B5719000896FB /* EditDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F9D235B5718000896FB /* EditDishViewController.swift */; };
 		81A00FA2235BD922000896FB /* WaitStaffIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00FA1235BD922000896FB /* WaitStaffIDViewController.swift */; };
+		81A00FA6235C204A000896FB /* OrderScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00FA5235C204A000896FB /* OrderScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDishViewController.swift; sourceTree = "<group>"; };
 		81A00F9D235B5718000896FB /* EditDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDishViewController.swift; sourceTree = "<group>"; };
 		81A00FA1235BD922000896FB /* WaitStaffIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitStaffIDViewController.swift; sourceTree = "<group>"; };
+		81A00FA5235C204A000896FB /* OrderScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */,
 				81A00F9D235B5718000896FB /* EditDishViewController.swift */,
 				81A00FA1235BD922000896FB /* WaitStaffIDViewController.swift */,
+				81A00FA5235C204A000896FB /* OrderScreenViewController.swift */,
 				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 				81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */,
 				81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */,
 				81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */,
+				81A00FA6235C204A000896FB /* OrderScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

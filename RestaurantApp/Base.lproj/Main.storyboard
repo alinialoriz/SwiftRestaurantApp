@@ -596,10 +596,10 @@
             </objects>
             <point key="canvasLocation" x="4329" y="-1803"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Order Screen View Controller-->
         <scene sceneID="Wtt-d1-ZAb">
             <objects>
-                <tabBarController id="KOc-Dq-4Lw" sceneMemberID="viewController">
+                <tabBarController id="KOc-Dq-4Lw" customClass="OrderScreenViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LSd-iT-qM3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
