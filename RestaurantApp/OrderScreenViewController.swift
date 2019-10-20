@@ -100,4 +100,26 @@ class OrderScreenViewController: UIViewController, UITableViewDelegate, UITableV
                     nil)
             }
         }
+    
+    // Allows table cells to be editable
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
+    
+    // Implement delete function when user swipes left on a table cell
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            orderedDishes.remove(at: indexPath.row)
+            
+            orderTableView.reloadData()
+            
+            // Recompute total cost of ordered dishes
+            let totalAmount = computeTotal(dishes: orderedDishes)
+           
+            // Display new total cost
+            totalOrder.text = "$ " + String(format: "%.2f", totalAmount)
+            
+        }
+    }
+}
