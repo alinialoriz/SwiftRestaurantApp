@@ -50,9 +50,9 @@ class WaitStaffIDViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBAction func selectWaitStaffID(_ sender: Any) {
         
         var message : String
-        message = "You are signing in as Wait Staff ID number:\n\(selectedID)"
+        message = "\nYou are signing in as\nWait Staff ID number:\n\(selectedID)"
         
-        let alertController = UIAlertController(title: "\nConfirm sign in", message:
+        let alertController = UIAlertController(title: "Confirm sign in", message:
             message , preferredStyle: .alert)
         
         alertController.addAction(UIAlertAction(title: "Sign in", style: .default, handler: { action in
