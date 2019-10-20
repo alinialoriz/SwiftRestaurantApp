@@ -69,9 +69,9 @@ class WaitStaffIDViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     // Prepares segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Override to prepare segue and pass reference of this ViewController to AddNewDishViewController
+        // Override to prepare segue and pass reference of this ViewController to StartNewOrderViewController
         if let orderScreenVC = segue.destination as? OrderScreenViewController {
-             if let staff = sender as? Int {
+            if let staff = sender as? Int {
             orderScreenVC.selectedID = staff
             orderScreenVC.waitStaffIDViewVC = self
             }

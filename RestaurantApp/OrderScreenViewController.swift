@@ -8,8 +8,10 @@
 
 import UIKit
 
-class OrderScreenViewController: UITabBarController {
-
+class OrderScreenViewController: UIViewController {
+    
+    @IBOutlet weak var staffID: UILabel!
+    
     // Create a variable that holds a reference to AdminDishesTableView
     var waitStaffIDViewVC = WaitStaffIDViewController()
     
@@ -18,8 +20,9 @@ class OrderScreenViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(selectedID)
-        // Do any additional setup after loading the view.
+        
+        // Set staffID input to the selectedID from WaitStaffIDViewController
+        staffID.text = String(selectedID)
     }
 
 }
