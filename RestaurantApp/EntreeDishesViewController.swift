@@ -55,22 +55,20 @@ class EntreeDishesViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    // Use the Protocol in EntreeTableViewCell to access data in the delegate function
-    func callSegueFromCell(myData: [String]) {
-        
-
+        // Use the Protocol in EntreeTableViewCell to access data in the delegate function
+        func callSegueFromCell(myData: [String]) {
         
         //Perform segue to OrderScreenViewController
-        self.performSegue(withIdentifier: "newOrderSegue", sender: myData)
+        self.performSegue(withIdentifier: "newOrder", sender: myData)
     }
     
     // Prepares segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Override to prepare segue and pass reference of this ViewController to OrderScreenViewController
-        if let addNewOrderVC = segue.destination as? OrderScreenViewController {
+        if let orderScreenVC = segue.destination as? OrderScreenViewController {
             if let dish = sender as? [String] {
-                addNewOrderVC.stringOrder = dish
-                addNewOrderVC.entreeTableViewVC = self
+                orderScreenVC.newOrderString = dish
+                orderScreenVC.entreeTableViewVC = self
             }
         }
     

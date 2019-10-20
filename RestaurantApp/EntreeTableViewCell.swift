@@ -76,11 +76,11 @@ class EntreeTableViewCell: UITableViewCell {
             entreeSwitch.isUserInteractionEnabled = false
             countStepper.isEnabled = false
             
-            // Pass data of modified cell to EntreeTableViewController
-            let mydata = [cellItemName, (cellItemQty), (cellItemPrice)]
-            if(self.delegate != nil){ //Just to be safe.
-                self.delegate.callSegueFromCell(myData: mydata)
-            }
+//            // Pass data of modified cell to EntreeTableViewController
+//            let mydata = [cellItemName, (cellItemQty), (cellItemPrice)]
+//            if(self.delegate != nil){ //Just to be safe.
+//                self.delegate.callSegueFromCell(myData: mydata)
+//            }
         }
     }
     

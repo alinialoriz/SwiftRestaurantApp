@@ -23,15 +23,19 @@ class OrderScreenViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var totalOrder: UILabel!
     
     var orderedEntreeDishes : [order] = []
+
+    
+    // Create a variable that holds a reference to AdminDishesTableView
+    var waitStaffIDViewVC = WaitStaffIDViewController()
     
     // Create a variable that holds a reference to EntreeDishesTableView
     var entreeTableViewVC = EntreeDishesViewController()
     
     // Create variable to accept values passed from AdminDishesTableView
-    var stringOrder : [String] = ["Potsticker","2","6.00"]
+    var waitStaffID : Int = 0
     
-    // Create variable to accept values passed from AdminDishesTableView
-    var selectedID : Int = 0
+    // Create variable to accept values passed from EntreeDishesTableView
+    var newOrderString : [String] = []
     
 //     // Create an array that contains the ordered Dish objects
 //    var orderedDishes : [Dish] = []
@@ -43,15 +47,18 @@ class OrderScreenViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         // Set staffID input to the selectedID from WaitStaffIDViewController
-        staffID.text = String(selectedID)
+        staffID.text = String(waitStaffID)
         
         //Create a newOrder object from the myData object passed from the EntreeTableViewCell
-        let newOrder = order(name:stringOrder[0], qty: Int(stringOrder[1])!, price: Double(stringOrder[2])!)
+        if newOrderString.isEmpty == false {
+            let newOrder = order(name:newOrderString[0], qty: Int(newOrderString[1])!, price: Double(newOrderString[2])!)
+            // Add Dish objects into the orderedEntreeDishes array
+            orderedEntreeDishes.append(newOrder)
+        }
         
-        // Add Dish objects into the orderedEntreeDishes array
-        orderedEntreeDishes.append(newOrder)
         
 //        // Add Dish objects into the orderedDishes array
 //        orderedDishes.append(dish1)
@@ -146,5 +153,9 @@ class OrderScreenViewController: UIViewController, UITableViewDelegate, UITableV
             totalOrder.text = "$ " + String(format: "%.2f", totalAmount)
             
         }
+    }
+    @IBAction func addDishes(_ sender: Any){
+        //Perform segue to menu
+        performSegue(withIdentifier: "menuSegue", sender: nil)
     }
 }
