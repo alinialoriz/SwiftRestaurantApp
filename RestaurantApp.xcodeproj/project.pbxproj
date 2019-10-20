@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		816AAEBD235C70A400467821 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEBC235C70A400467821 /* MainTabBarViewController.swift */; };
+		816AAEBF235C8ADA00467821 /* EntreeDishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEBE235C8ADA00467821 /* EntreeDishesViewController.swift */; };
+		816AAEC1235C8C0600467821 /* EntreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEC0235C8C0600467821 /* EntreeTableViewCell.swift */; };
 		81A00F7D23591EE5000896FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F7C23591EE5000896FB /* AppDelegate.swift */; };
 		81A00F7F23591EE5000896FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F7E23591EE5000896FB /* ViewController.swift */; };
 		81A00F8223591EE5000896FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A00F8023591EE5000896FB /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		816AAEBC235C70A400467821 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		816AAEBE235C8ADA00467821 /* EntreeDishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreeDishesViewController.swift; sourceTree = "<group>"; };
+		816AAEC0235C8C0600467821 /* EntreeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreeTableViewCell.swift; sourceTree = "<group>"; };
 		81A00F7923591EE5000896FB /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A00F7C23591EE5000896FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81A00F7E23591EE5000896FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				816AAEBC235C70A400467821 /* MainTabBarViewController.swift */,
 				81A00FA5235C204A000896FB /* OrderScreenViewController.swift */,
 				81A00FA9235C618D000896FB /* OrderTableViewCell.swift */,
+				816AAEBE235C8ADA00467821 /* EntreeDishesViewController.swift */,
+				816AAEC0235C8C0600467821 /* EntreeTableViewCell.swift */,
 				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
@@ -171,9 +177,11 @@
 				81A00FA2235BD922000896FB /* WaitStaffIDViewController.swift in Sources */,
 				81A00F98235ADF25000896FB /* Dish.swift in Sources */,
 				81A00FAA235C618D000896FB /* OrderTableViewCell.swift in Sources */,
+				816AAEC1235C8C0600467821 /* EntreeTableViewCell.swift in Sources */,
 				81A00F9E235B5719000896FB /* EditDishViewController.swift in Sources */,
 				81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */,
 				81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */,
+				816AAEBF235C8ADA00467821 /* EntreeDishesViewController.swift in Sources */,
 				816AAEBD235C70A400467821 /* MainTabBarViewController.swift in Sources */,
 				81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */,
 				81A00FA6235C204A000896FB /* OrderScreenViewController.swift in Sources */,

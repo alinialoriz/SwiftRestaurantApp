@@ -34,7 +34,7 @@ class OrderScreenViewController: UIViewController, UITableViewDelegate, UITableV
         // Set staffID input to the selectedID from WaitStaffIDViewController
         staffID.text = String(selectedID)
         
-        // Add Dish objects into the temporaryDishes array
+        // Add Dish objects into the orderedDishes array
         orderedDishes.append(dish1)
         orderedDishes.append(dish2)
         orderedDishes.append(dish3)
