@@ -8,6 +8,15 @@
 
 import UIKit
 
+//Pass a String array, to be used on the
+//Segue call in the EntreeDishesViewController
+//To send to the Order Summary
+
+protocol MyCustomCellDelegator {
+    func callSegueFromCell(myData: [String])
+}
+
+
 class EntreeTableViewCell: UITableViewCell {
 
 
@@ -17,8 +26,16 @@ class EntreeTableViewCell: UITableViewCell {
     @IBOutlet weak var entreeQty: UILabel!
     @IBOutlet weak var entreeSwitch: UISwitch!
     @IBOutlet weak var countStepper: UIStepper!
-    // Subclass that accepts parameters to initialize entreeCell
     
+    //Set the EntreeTableViewCell new Delegate
+    var delegate:MyCustomCellDelegator!
+    
+    //Set variables to hold the data to be passed to the delegate function
+    var cellItemName : String = ""
+    var cellItemQty : String = ""
+    var cellItemPrice : String = ""
+    
+    // Subclass that accepts parameters to initialize entreeCell
     class entreeCell: NSObject {
         
         var eImage : UIImage
@@ -40,19 +57,30 @@ class EntreeTableViewCell: UITableViewCell {
     @IBAction func entreeStepper(_ sender: UIStepper) {
         
         if sender.value >= 1 {
-        entreeQty.text = "x" + String(format: "%.0f", sender.value)
-        entreeSwitch.isOn = true
+        entreeQty.text = String(format: "%.0f", sender.value)
         } else {
             entreeQty.text = ""
-            entreeSwitch.isOn = false
         }
     }
     
     @IBAction func switchAction(_ sender: Any) {
-        if entreeSwitch.isOn == false {
-            entreeQty.text = ""
-        } else {
-            entreeQty.text = "x" + String(format: "%.0f", countStepper.value)
+        if entreeSwitch.isOn == true {
+            
+            //When switch is flipped on, get item name, qty and price
+            //of the modified cell
+            cellItemName = entreeName.text!
+            cellItemQty = entreeQty.text!
+            cellItemPrice = entreePrice.text!
+            
+            // Disable user from switching back off
+            entreeSwitch.isUserInteractionEnabled = false
+            countStepper.isEnabled = false
+            
+            // Pass data of modified cell to EntreeTableViewController
+            let mydata = [cellItemName, (cellItemQty), (cellItemPrice)]
+            if(self.delegate != nil){ //Just to be safe.
+                self.delegate.callSegueFromCell(myData: mydata)
+            }
         }
     }
     

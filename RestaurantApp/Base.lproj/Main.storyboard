@@ -564,7 +564,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rGR-ui-5IJ">
-                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="594"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -658,6 +658,18 @@
                                     <outlet property="delegate" destination="tcK-H8-FbD" id="Cts-Kd-i0u"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZu-7H-6ET">
+                                <rect key="frame" x="0.0" y="742" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Add to Order">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addOrderBtn:" destination="tcK-H8-FbD" eventType="touchUpInside" id="EK8-EG-d5V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jGH-a9-aon"/>
@@ -665,6 +677,7 @@
                     <tabBarItem key="tabBarItem" title="Entrée" image="entree" id="0Pg-Ku-vCa"/>
                     <connections>
                         <outlet property="entreeTableView" destination="rGR-ui-5IJ" id="Obq-10-G2b"/>
+                        <segue destination="HMG-3v-Gec" kind="show" identifier="newOrderSegue" id="pYl-r4-t8c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4r-gD-o8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -952,4 +965,7 @@
         <image name="main" width="30" height="30"/>
         <image name="order-summary" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pYl-r4-t8c"/>
+    </inferredMetricsTieBreakers>
 </document>

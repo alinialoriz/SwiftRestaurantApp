@@ -8,10 +8,12 @@
 
 import UIKit
 
-class EntreeDishesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class EntreeDishesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyCustomCellDelegator {
     
     //Create an array of entree dishes
     var entreeCells : [Dish] = []
+   
     
     // Create 3 Dish objects: dish1, dish2, dish3
     let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 0, price: 6.00, isSelected: false)
@@ -41,16 +43,36 @@ class EntreeDishesViewController: UIViewController, UITableViewDelegate, UITable
         
         cell.entreeImage.image = item.image
         cell.entreeName.text = item.name
-        cell.entreePrice.text = "$ " + String(format: "%.2f", item.price)
+        cell.entreePrice.text = String(format: "%.2f", item.price)
         cell.entreeSwitch.isOn = item.isSelected
         
         if item.qty == 0 {
             cell.entreeQty.text = ""
-        } else {
-            cell.entreeQty.text = "x" + String(item.qty)
         }
+        
+        cell.delegate = self
         
         return cell
     }
+    
+    // Use the Protocol in EntreeTableViewCell to access data in the delegate function
+    func callSegueFromCell(myData: [String]) {
+        
 
+        
+        //Perform segue to OrderScreenViewController
+        self.performSegue(withIdentifier: "newOrderSegue", sender: myData)
+    }
+    
+    // Prepares segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Override to prepare segue and pass reference of this ViewController to OrderScreenViewController
+        if let addNewOrderVC = segue.destination as? OrderScreenViewController {
+            if let dish = sender as? [String] {
+                addNewOrderVC.stringOrder = dish
+                addNewOrderVC.entreeTableViewVC = self
+            }
+        }
+    
+    }
 }
