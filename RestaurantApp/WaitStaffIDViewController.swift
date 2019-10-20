@@ -52,7 +52,7 @@ class WaitStaffIDViewController: UIViewController, UIPickerViewDataSource, UIPic
         var message : String
         message = "You are signing in as Wait Staff ID number:\n\(selectedID)"
         
-        let alertController = UIAlertController(title: "Congfirm sign in", message:
+        let alertController = UIAlertController(title: "\nConfirm sign in", message:
             message , preferredStyle: .alert)
         
         alertController.addAction(UIAlertAction(title: "Sign in", style: .default, handler: { action in
@@ -70,9 +70,9 @@ class WaitStaffIDViewController: UIViewController, UIPickerViewDataSource, UIPic
     // Prepares segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Override to prepare segue and pass reference of this ViewController to StartNewOrderViewController
-        if let orderScreenVC = segue.destination as? OrderScreenViewController {
+        if let orderScreenVC = segue.destination as? MainTabBarViewController {
             if let staff = sender as? Int {
-            orderScreenVC.selectedID = staff
+            orderScreenVC.waitStaffID = staff
             orderScreenVC.waitStaffIDViewVC = self
             }
         }
