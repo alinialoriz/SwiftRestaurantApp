@@ -45,35 +45,29 @@ class WaitStaffIDViewController: UIViewController, UIPickerViewDataSource, UIPic
         // Detect and store picker's current row being selected
         selectedID = waitStaffIDs[idPicker.selectedRow(inComponent:0)]
         
-       
     }
     @IBAction func selectWaitStaffID(_ sender: Any) {
         
-        var message : String
-        message = "\nYou are signing in as\nWait Staff ID number:\n\(selectedID)"
-        
+        if selectedID == 0 {
+        // Flag an alert
         let alertController = UIAlertController(title: "Confirm sign in", message:
-            message , preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "Sign in", style: .default, handler: { action in
-            
-            //Perform segue to ordering screen
-            self.performSegue(withIdentifier: "orderScreenSegue", sender: self.selectedID)
-        }))
-        
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-        
+           "Please select an ID number from the ID picker." , preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
-        
+            
+        } else {
+            //Perform segue to ordering screen
+            performSegue(withIdentifier: "startOrderSegue", sender: selectedID)
+        }
     }
-    
-    // Prepares segue
+        
+    // Prepares segue to StartNewOrderViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Override to prepare segue and pass reference of this ViewController to StartNewOrderViewController
-        if let orderScreenVC = segue.destination as? OrderScreenViewController {
+        if let orderScreenVC = segue.destination as? StartNewOrderViewController {
             if let staff = sender as? Int {
-            orderScreenVC.waitStaffID = staff
-            orderScreenVC.waitStaffIDViewVC = self
+            orderScreenVC.selectedID = staff
+            orderScreenVC.previousVC = self
             }
         }
     }

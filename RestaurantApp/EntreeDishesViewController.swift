@@ -9,7 +9,10 @@
 import UIKit
 
 
-class EntreeDishesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyCustomCellDelegator {
+class EntreeDishesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+//    // Create a variable that holds a reference to OrderScreenViewController
+//    var orderScreenVC = OrderScreenViewController()
     
     //Create an array of entree dishes
     var entreeCells : [Dish] = []
@@ -49,28 +52,17 @@ class EntreeDishesViewController: UIViewController, UITableViewDelegate, UITable
         if item.qty == 0 {
             cell.entreeQty.text = ""
         }
-        
-        cell.delegate = self
-        
+    
         return cell
     }
     
-        // Use the Protocol in EntreeTableViewCell to access data in the delegate function
-        func callSegueFromCell(myData: [String]) {
-        
-        //Perform segue to OrderScreenViewController
-        self.performSegue(withIdentifier: "newOrder", sender: myData)
-    }
+//        // Use the Protocol in EntreeTableViewCell to access data in the delegate function
+//        func callSegueFromCell(myData: [String]) {
+//
+//        //Pass mydata to OrderViewController's newOrderString variable
+//        self.orderScreenVC.newOrderString = myData
+//
+//        self.orderScreenVC.orderTableView.reloadData()
+//    }
     
-    // Prepares segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Override to prepare segue and pass reference of this ViewController to OrderScreenViewController
-        if let orderScreenVC = segue.destination as? OrderScreenViewController {
-            if let dish = sender as? [String] {
-                orderScreenVC.newOrderString = dish
-                orderScreenVC.entreeTableViewVC = self
-            }
-        }
-    
-    }
 }

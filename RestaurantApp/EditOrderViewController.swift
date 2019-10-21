@@ -1,14 +1,14 @@
 //
-//  StartOrderViewController.swift
+//  EditOrderViewController.swift
 //  RestaurantApp
 //
-//  Created by Alinia Mabatid on 20/10/2019.
+//  Created by Alinia Mabatid on 21/10/2019.
 //  Copyright © 2019 UWS. All rights reserved.
 //
 
 import UIKit
 
-class StartOrderViewController: UIViewController {
+class EditOrderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

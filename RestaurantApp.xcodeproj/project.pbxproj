@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		816AAEBF235C8ADA00467821 /* EntreeDishesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEBE235C8ADA00467821 /* EntreeDishesViewController.swift */; };
 		816AAEC1235C8C0600467821 /* EntreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEC0235C8C0600467821 /* EntreeTableViewCell.swift */; };
+		816AAEC3235D8CA200467821 /* StartNewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEC2235D8CA200467821 /* StartNewOrderViewController.swift */; };
+		816AAEC5235D959100467821 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEC4235D959100467821 /* MenuTableViewController.swift */; };
+		816AAEC7235D9A5700467821 /* EditOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEC6235D9A5700467821 /* EditOrderViewController.swift */; };
 		81A00F7D23591EE5000896FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F7C23591EE5000896FB /* AppDelegate.swift */; };
 		81A00F7F23591EE5000896FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F7E23591EE5000896FB /* ViewController.swift */; };
 		81A00F8223591EE5000896FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A00F8023591EE5000896FB /* Main.storyboard */; };
@@ -21,13 +24,15 @@
 		81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */; };
 		81A00F9E235B5719000896FB /* EditDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F9D235B5718000896FB /* EditDishViewController.swift */; };
 		81A00FA2235BD922000896FB /* WaitStaffIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00FA1235BD922000896FB /* WaitStaffIDViewController.swift */; };
-		81A00FA6235C204A000896FB /* OrderScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00FA5235C204A000896FB /* OrderScreenViewController.swift */; };
 		81A00FAA235C618D000896FB /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00FA9235C618D000896FB /* OrderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		816AAEBE235C8ADA00467821 /* EntreeDishesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreeDishesViewController.swift; sourceTree = "<group>"; };
 		816AAEC0235C8C0600467821 /* EntreeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreeTableViewCell.swift; sourceTree = "<group>"; };
+		816AAEC2235D8CA200467821 /* StartNewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNewOrderViewController.swift; sourceTree = "<group>"; };
+		816AAEC4235D959100467821 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		816AAEC6235D9A5700467821 /* EditOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderViewController.swift; sourceTree = "<group>"; };
 		81A00F7923591EE5000896FB /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A00F7C23591EE5000896FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81A00F7E23591EE5000896FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +47,6 @@
 		81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDishViewController.swift; sourceTree = "<group>"; };
 		81A00F9D235B5718000896FB /* EditDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDishViewController.swift; sourceTree = "<group>"; };
 		81A00FA1235BD922000896FB /* WaitStaffIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitStaffIDViewController.swift; sourceTree = "<group>"; };
-		81A00FA5235C204A000896FB /* OrderScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderScreenViewController.swift; sourceTree = "<group>"; };
 		81A00FA9235C618D000896FB /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,15 +88,17 @@
 				81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */,
 				81A00F9D235B5718000896FB /* EditDishViewController.swift */,
 				81A00FA1235BD922000896FB /* WaitStaffIDViewController.swift */,
-				81A00FA5235C204A000896FB /* OrderScreenViewController.swift */,
+				816AAEC2235D8CA200467821 /* StartNewOrderViewController.swift */,
 				81A00FA9235C618D000896FB /* OrderTableViewCell.swift */,
-				816AAEBE235C8ADA00467821 /* EntreeDishesViewController.swift */,
-				816AAEC0235C8C0600467821 /* EntreeTableViewCell.swift */,
+				816AAEC4235D959100467821 /* MenuTableViewController.swift */,
+				816AAEC6235D9A5700467821 /* EditOrderViewController.swift */,
 				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
 				81A00F8B23591EE7000896FB /* Info.plist */,
 				81A00F8323591EE5000896FB /* RestaurantApp.xcdatamodeld */,
+				816AAEBE235C8ADA00467821 /* EntreeDishesViewController.swift */,
+				816AAEC0235C8C0600467821 /* EntreeTableViewCell.swift */,
 			);
 			path = RestaurantApp;
 			sourceTree = "<group>";
@@ -170,17 +176,19 @@
 			files = (
 				81A00F7F23591EE5000896FB /* ViewController.swift in Sources */,
 				81A00F96235ACBA9000896FB /* DishTableViewCell.swift in Sources */,
+				816AAEC5235D959100467821 /* MenuTableViewController.swift in Sources */,
 				81A00F7D23591EE5000896FB /* AppDelegate.swift in Sources */,
 				81A00FA2235BD922000896FB /* WaitStaffIDViewController.swift in Sources */,
 				81A00F98235ADF25000896FB /* Dish.swift in Sources */,
 				81A00FAA235C618D000896FB /* OrderTableViewCell.swift in Sources */,
 				816AAEC1235C8C0600467821 /* EntreeTableViewCell.swift in Sources */,
 				81A00F9E235B5719000896FB /* EditDishViewController.swift in Sources */,
+				816AAEC7235D9A5700467821 /* EditOrderViewController.swift in Sources */,
 				81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */,
 				81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */,
 				816AAEBF235C8ADA00467821 /* EntreeDishesViewController.swift in Sources */,
+				816AAEC3235D8CA200467821 /* StartNewOrderViewController.swift in Sources */,
 				81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */,
-				81A00FA6235C204A000896FB /* OrderScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

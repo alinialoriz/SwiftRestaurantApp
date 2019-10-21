@@ -12,9 +12,9 @@ import UIKit
 //Segue call in the EntreeDishesViewController
 //To send to the Order Summary
 
-protocol MyCustomCellDelegator {
-    func callSegueFromCell(myData: [String])
-}
+//protocol MyCustomCellDelegator {
+//    func callSegueFromCell(myData: [String])
+//}
 
 
 class EntreeTableViewCell: UITableViewCell {
@@ -27,8 +27,8 @@ class EntreeTableViewCell: UITableViewCell {
     @IBOutlet weak var entreeSwitch: UISwitch!
     @IBOutlet weak var countStepper: UIStepper!
     
-    //Set the EntreeTableViewCell new Delegate
-    var delegate:MyCustomCellDelegator!
+//    //Set the EntreeTableViewCell new Delegate
+//    var delegate:MyCustomCellDelegator!
     
     //Set variables to hold the data to be passed to the delegate function
     var cellItemName : String = ""
