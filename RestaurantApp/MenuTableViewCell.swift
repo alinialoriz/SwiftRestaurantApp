@@ -44,6 +44,7 @@ class MenuTableViewCell: UITableViewCell {
         menuName.text = dish.name
         menuPrice.text = "$ " + String(format: "%.2f", dish.price)
         menuSwitch.isOn = dish.isSelected
+        menuSwitch.isEnabled = false
     }
 
     override func awakeFromNib() {
@@ -56,5 +57,5 @@ class MenuTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

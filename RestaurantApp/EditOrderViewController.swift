@@ -22,6 +22,9 @@ class EditOrderViewController: UIViewController {
     // Create variable to accept index of selectedRow from OrderSummary
     var selectedRowInt : Int = 0
     
+    // Create a variable to hold the segue identifier
+    var segueIdentifier : String = ""
+    
     // UIOutlets
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var selectedDishImage: UIImageView!
@@ -55,18 +58,51 @@ class EditOrderViewController: UIViewController {
         // When editBtn is clicked, update the qty property of the selectedDish item
         if Int(editQtyStepper.value) >= 1 {
             
-            // if selectedDish qty is not 0, proceed with updating qty value
+            // Check segue identifier
+            if segueIdentifier == "editOrderSegue" {
+                
+            // if selectedDish qty is not 0, proceed with updating qty value in orderSummary
         self.previousVC.orderedDishes[self.selectedRowInt].qty = Int(self.selectedDishQty.text!)!
+                
+                //Reload orderSummary table view
+                self.previousVC.orderSummaryTableView.reloadData()
             
-            //Reload orderSummary table view
-            self.previousVC.orderSummaryTableView.reloadData()
+            } else {
+                // Else if segue identifier == "addOrderSegue"
+               // if selectedMenuDish qty is not 0, proceed with updating qty value in menuTable
+             if self.selectedDish.category == "Entrée" {
+               //update entree dish qty
+                self.menuTableVC.entreeDishes[self.selectedRowInt].qty = Int(self.selectedDishQty.text!)!
+                
+               //update entree dish isSelected
+                self.menuTableVC.entreeDishes[self.selectedRowInt].isSelected = true
+                
+             } else if self.selectedDish.category == "Main" {
+                //update main dish qty
+                self.menuTableVC.mainDishes[self.selectedRowInt].qty = Int(self.selectedDishQty.text!)!
+                
+                //update entree dish isSelected
+                self.menuTableVC.mainDishes[self.selectedRowInt].isSelected = true
+             } else {
+                //update dessert dish qty
+                self.menuTableVC.dessertDishes[self.selectedRowInt].qty = Int(self.selectedDishQty.text!)!
+                
+                //update entree dish isSelected
+                self.menuTableVC.dessertDishes[self.selectedRowInt].isSelected = true
+                
+            }
+            
             //Reload Menu table view
             self.menuTableVC.menuTableView.reloadData()
+            }
             
-            // Collapse EditDishView and transfer to AdminDishesTableView on click
+            // Collapse EditOrderView and transfer to previously accessed view controller on click
         self.navigationController?.popViewController(animated: true)
             
         } else {
+            // Check segue identifier
+            if segueIdentifier == "editOrderSegue" {
+                
             // if selectedDish qty set to 0, alert user item will be removed from orderSummary
             let alertController = UIAlertController(title:
                 "Verify Order Quantity", message: "\nOrder quantity has been set to 0.\nThis will remove item from the order list.",
@@ -74,6 +110,7 @@ class EditOrderViewController: UIViewController {
             
                 alertController.addAction(UIAlertAction(title: "Confirm", style:
                     .default, handler: { action in
+                        
                         
                         // If user confirms, remove item from orderedDish array
                     self.previousVC.orderedDishes.remove(at: self.selectedRowInt)
@@ -83,7 +120,7 @@ class EditOrderViewController: UIViewController {
                         
                         //Reload orderSummary table view
                         self.previousVC.orderSummaryTableView.reloadData()
-                        
+                
                         //Reload orderSummary table view
                         self.menuTableVC.menuTableView.reloadData()
                         
@@ -95,17 +132,38 @@ class EditOrderViewController: UIViewController {
                 .destructive, handler: nil ))
             present(alertController, animated: true, completion:
                 nil)
+            } else {
+                // Else if segue identifier == "addOrderSegue"
+                
+                // if selectedMenuDish qty is 0, set isSelected to false
+                if self.selectedDish.category == "Entrée" {
+                    //update entree dish isSelected
+                    self.menuTableVC.entreeDishes[self.selectedRowInt].isSelected = false
+                    
+                } else if self.selectedDish.category == "Main" {
+                    //update entree dish isSelected
+                    self.menuTableVC.mainDishes[self.selectedRowInt].isSelected = false
+                } else {
+                    
+                    //update entree dish isSelected
+                    self.menuTableVC.dessertDishes[self.selectedRowInt].isSelected = false
+                    
+                }
+                
+                //Reload Menu table view
+                self.menuTableVC.menuTableView.reloadData()
+            }
             
-            
+            // Collapse EditDishView and transfer to AdminDishesTableView on click
+            self.navigationController?.popViewController(animated: true)
         }
-        
     }
     
     // A function that finds the dish item in the menu table view that matches the removed dish item in orderSummary, and flips that dish item's switch off
     
     func findInMenuTable() {
         // Check the category of the selectedDish item
-        if self.selectedDish.category == "Entrée" {
+        if selectedDish.category == "Entrée" {
             // If entree dish, loop through entreeDishes array
             for entree in menuTableVC.entreeDishes {
                 // Find matching dish name and flip switch off
@@ -113,7 +171,7 @@ class EditOrderViewController: UIViewController {
                     entree.isSelected = false
                 }
             }
-        } else if self.selectedDish.category == "Main" {
+        } else if selectedDish.category == "Main" {
             // If main dish, loop through mainDishes array
             for main in menuTableVC.mainDishes {
                 // Find matching dish name and flip switch off
@@ -130,7 +188,5 @@ class EditOrderViewController: UIViewController {
                 }
             }
         }
-        
     }
-
 }

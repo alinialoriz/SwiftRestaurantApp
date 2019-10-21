@@ -19,12 +19,12 @@ class OrderTableViewCell: UITableViewCell {
     
     func setOrder(dish : Dish) {
         
-        dishName.text = dish.name
-        dishQty.text = "x" + String(dish.qty)
+        dishName!.text = dish.name
+        dishQty!.text = "x" + String(dish.qty)
         
         //Calculate total price of ordered dish
         let orderCost = Double(dish.qty) * dish.price
-        orderPrice.text = "$ " + String(format: "%.2f", orderCost)
+        orderPrice!.text = "$ " + String(format: "%.2f", orderCost)
         
     }
         

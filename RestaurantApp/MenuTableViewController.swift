@@ -15,7 +15,10 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet var menuTableView: UITableView!
     
     // Create a variable that holds a reference to StartNewOrderView
-    var previousVC = StartNewOrderViewController()
+    var previousVC = WaitStaffIDViewController()
+    
+    // Create a variable to hold the selectedID from WaitStaffIDTableView
+    var selectedID : Int = 0
     
     // Create an array that contains Dish objects
     var entreeDishes : [Dish] = []
@@ -24,6 +27,9 @@ class MenuTableViewController: UITableViewController {
     
     // Create a variable that holds the indexPath of a selected cell to be passed on to a segue
     var indexPathSelected : Int = 0
+    
+    // EditView segue identifier
+    let editViewSegueIdentifier = "addOrderSegue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -185,7 +191,8 @@ class MenuTableViewController: UITableViewController {
         }
         
         // Move to EditOrderViewController to set order quantity of selected dish item
-        performSegue(withIdentifier: "addOrderSegue", sender: dishInfo)
+        
+        performSegue(withIdentifier: editViewSegueIdentifier, sender: dishInfo)
     }
     
     // Prepares segue to EditOrderViewController
@@ -196,12 +203,69 @@ class MenuTableViewController: UITableViewController {
                 editDishVC.selectedDish = dish
                 editDishVC.menuTableVC = self
                 editDishVC.selectedRowInt = indexPathSelected
+                editDishVC.segueIdentifier = editViewSegueIdentifier
+            }
+        }
+        
+        if let submitOrderVC = segue.destination as? OrderSummaryViewController {
+            if let order = sender as? [Dish] {
+                submitOrderVC.orderedDishes = order
+                submitOrderVC.previousVC = self
             }
         }
     }
     
     // When add order is clicked, pass "true" switch value items to orderSummary
+    @IBAction func addOrderBtn(_ sender: Any) {
     
-    // When menu item is deselected, loop through orderedDishArray, find matching dish and update qty or delete item
-
+        var selectedDishes : [Dish] = []
+       
+        //Check selected items in Entree Section
+        let entreeRowCount = menuTableView.numberOfRows(inSection: 0)
+        
+        for row in 0...entreeRowCount - 1 {
+            if entreeDishes[row].isSelected == true {
+                // Add dish item to selectedDishes array
+                selectedDishes.append(entreeDishes[row])
+            }
+        }
+        
+        //Check selected items in Main Section
+        let mainRowCount = menuTableView.numberOfRows(inSection: 1)
+        
+        for row in 0...mainRowCount - 1 {
+            if mainDishes[row].isSelected == true {
+                // Add dish item to selectedDishes array
+                selectedDishes.append(mainDishes[row])
+            }
+        }
+        
+        //Check selected items in Dessert Section
+        let dessertRowCount = menuTableView.numberOfRows(inSection: 1)
+        
+        for row in 0...dessertRowCount - 1 {
+            if dessertDishes[row].isSelected == true {
+                // Add dish item to selectedDishes array
+                selectedDishes.append(mainDishes[row])
+            }
+        }
+        
+        performSegue(withIdentifier: "submitOrder", sender: selectedDishes)
+        
+//        // Add selected dishes to orderedDishes array in orderSummary
+//        // Loop through all dishes in selectedDishes array
+//        for dish in selectedDishes {
+//            previousVC.orderedDishes.append(dish)
+//            previousVC.orderSummaryTableView.reloadData()
+//
+//        }
+        
+//        //Reload orderSummary table view
+//        previousVC.orderSummaryTableView.reloadData()
+//
+//        // Collapse MenuTableView and transfer to OrderSummaryTableView on click
+//        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
+
