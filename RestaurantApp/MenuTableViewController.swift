@@ -210,6 +210,7 @@ class MenuTableViewController: UITableViewController {
         if let submitOrderVC = segue.destination as? OrderSummaryViewController {
             if let order = sender as? [Dish] {
                 submitOrderVC.orderedDishes = order
+                submitOrderVC.selectedID = selectedID
                 submitOrderVC.previousVC = self
             }
         }
@@ -246,7 +247,7 @@ class MenuTableViewController: UITableViewController {
         for row in 0...dessertRowCount - 1 {
             if dessertDishes[row].isSelected == true {
                 // Add dish item to selectedDishes array
-                selectedDishes.append(mainDishes[row])
+                selectedDishes.append(dessertDishes[row])
             }
         }
         

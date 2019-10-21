@@ -16,10 +16,36 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     // Reference to MenuTableView
     var previousVC = MenuTableViewController()
     
+    // Accept selectedID from MenuTableView
+    var selectedID : Int = 0
+    
+    // UIOutlets
+    @IBOutlet weak var orderNumber: UILabel!
+    @IBOutlet weak var waitStaffID: UILabel!
+    @IBOutlet weak var tableNumber: UITextField!
+    @IBOutlet weak var totalCost: UILabel!
+    @IBOutlet weak var orderSummary: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up waitStaffID
+        waitStaffID!.text = String(selectedID)
 
-        // Do any additional setup after loading the view.
+        // Compute total cost of ordered dishes
+        let totalAmount = computeTotal(dishes: orderedDishes)
+        // Display total cost
+        totalCost!.text = "$ " + String(format: "%.2f", totalAmount)
+    }
+    
+    // A function that computes total cost of ordered dishes
+    func computeTotal(dishes: [Dish]) -> Double {
+        var total : Double = 0.00
+        
+        for dish in dishes {
+            total += (Double(dish.qty) * dish.price)
+        }
+        return total
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,5 +68,40 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
         
         return cell
     }
-
+    
+    // Allows order cells to be editable
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // Implement delete function when user swipes left on a order cell, to remove an item form order summary
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            // Remove dish currently selected from orderedDishes array
+            orderedDishes.remove(at: indexPath.row)
+            
+            // Reload orderSummary table view
+            orderSummary.reloadData()
+            
+            // Recompute total cost of ordered dishes
+            let totalAmount = computeTotal(dishes: orderedDishes)
+            
+            // Display new total cost
+            totalCost.text = "$ " + String(format: "%.2f", totalAmount)
+        }
+    }
+    
+    // On click of folder icon, open list of all orders by specific staff member
+    @IBAction func orderHistory(_ sender: Any) {
+        // Perfom segway to order history screen
+        //********************
+    }
+    
+    // On click of submit order button, send Alert box/ SMS
+    @IBAction func submitBtn(_ sender: Any) {
+        // Set up notif
+        //**********************
+    }
+    
 }
