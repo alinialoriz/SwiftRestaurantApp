@@ -8,86 +8,162 @@
 
 import UIKit
 
+//This class handles the TableView of the Wait Staff user
+
 class MenuTableViewController: UITableViewController {
+    
+    @IBOutlet var menuTableView: UITableView!
     
     // Create a variable that holds a reference to StartNewOrderView
     var previousVC = StartNewOrderViewController()
+    
+    // Create an array that contains Dish objects
+    var entreeDishes : [Dish] = []
+    var mainDishes : [Dish] = []
+    var dessertDishes : [Dish] = []
+    
+    // Create a variable that holds the indexPath of a selected cell to be passed on to a segue
+    var indexPathSelected : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Call createArray function and populate the dishes array
+        entreeDishes = createEntreeArray()
+        mainDishes = createMainArray()
+        dessertDishes = createDessertArray()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    // A function that creates a temporary array containing Entree Dish objects
+    // which will be passed into the entree dishes array
+    func createEntreeArray() -> [Dish] {
+        
+        // Create a temporary array containing Dish objects
+        var temporaryDishes : [Dish] = []
+        
+        // Create 3 Dish objects: dish1, dish2, dish3
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 0, price: 6.00, isSelected: false)
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 0, price: 8.00, isSelected: false)
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Entrée", qty: 0, price: 6.00, isSelected: false)
+        
+        // Add Dish objects into the temporaryDishes array
+        temporaryDishes.append(dish1)
+        temporaryDishes.append(dish2)
+        temporaryDishes.append(dish3)
+        
+        // return a Dish array when this function is called
+        return temporaryDishes
+    }
+    
+    // A function that creates a temporary array containing Main Dish objects
+    // which will be passed into the main dishes array
+    func createMainArray() -> [Dish] {
+        
+        // Create a temporary array containing Dish objects
+        var temporaryDishes : [Dish] = []
+        
+        // Create 3 Dish objects: dish1, dish2, dish3
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Main", qty: 0, price: 6.00, isSelected: false)
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 0, price: 8.00, isSelected: false)
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Main", qty: 0, price: 6.00, isSelected: false)
+        
+        // Add Dish objects into the temporaryDishes array
+        temporaryDishes.append(dish1)
+        temporaryDishes.append(dish2)
+        temporaryDishes.append(dish3)
+        
+        // return a Dish array when this function is called
+        return temporaryDishes
+    }
+    
+    // A function that creates a temporary array containing Dessert Dish objects
+    // which will be passed into the dessert dishes array
+    func createDessertArray() -> [Dish] {
+        
+        // Create a temporary array containing Dish objects
+        var temporaryDishes : [Dish] = []
+        
+        // Create 3 Dish objects: dish1, dish2, dish3
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Dessert", qty: 0, price: 6.00, isSelected: false)
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Dessert", qty: 0, price: 8.00, isSelected: false)
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Dessert", qty: 0, price: 6.00, isSelected: false)
+        
+        // Add Dish objects into the temporaryDishes array
+        temporaryDishes.append(dish1)
+        temporaryDishes.append(dish2)
+        temporaryDishes.append(dish3)
+        
+        // return a Dish array when this function is called
+        return temporaryDishes
     }
 
     // MARK: - Table view data source
+    
+    //Set the headers for each TableView section
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.backgroundColor = UIColor.black
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 18.0)
+        
+        if section == 0 {
+            label.text = "Entree Dishes"
+        } else if section == 1 {
+            label.text = "Main Dishes"
+        } else {
+            label.text = "Dessert Dishes"
+        }
+        
+        return label
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        if section == 0 {
+            //Set number of table view rows for Entree section according to number of items in entree dishes array
+            return entreeDishes.count
+        } else if section == 1 {
+            //Set number of table view rows for Main section according to number of items in main dishes array
+            return mainDishes.count
+        } else {
+            //Set number of table view rows for Dessert section according to number of items in dessert dishes array
+            return dessertDishes.count
+        }
+        
     }
-
-    /*
+    
+    // Populate each table view cell with a specific dish object
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        // Check section number index
+        let dishCategory = indexPath.section
+        var dishInfo : Dish
+        
+        // Display dish object in its designated section
+        if dishCategory == 0 {
+            dishInfo = entreeDishes[indexPath.row]
+        } else if dishCategory == 1 {
+            dishInfo = mainDishes[indexPath.row]
+        } else {
+            dishInfo = dessertDishes[indexPath.row]
+        }
+        
+        // Populate a cell with the values of the current dish object
+        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuTableViewCell
+        
+        // Call the setDish function of the MenuTableViewCell class
+        // and pass current dish object to populate cell properties
+        cell.setDish(dish: dishInfo)
+        
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

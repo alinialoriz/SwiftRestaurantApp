@@ -31,7 +31,6 @@ class AdminDishesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Call createArray function and populate the dishes array
-        
         entreeDishes = createEntreeArray()
         mainDishes = createMainArray()
         dessertDishes = createDessertArray()
@@ -128,13 +127,15 @@ class AdminDishesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //Set number of table view rows for Entree section according to number of items in entree dishes array
         
         if section == 0 {
+             //Set number of table view rows for Entree section according to number of items in entree dishes array
             return entreeDishes.count
         } else if section == 1 {
+             //Set number of table view rows for Main section according to number of items in main dishes array
             return mainDishes.count
         } else {
+            //Set number of table view rows for Dessert section according to number of items in dessert dishes array
             return dessertDishes.count
         }
         
