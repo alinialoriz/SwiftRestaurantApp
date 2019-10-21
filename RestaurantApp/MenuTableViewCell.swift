@@ -14,7 +14,6 @@ class MenuTableViewCell: UITableViewCell {
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var menuName: UILabel!
     @IBOutlet weak var menuPrice: UILabel!
-    @IBOutlet weak var menuQty: UILabel!
     @IBOutlet weak var menuSwitch: UISwitch!
     
     // Subclass that accepts parameters to initialize menuCell
@@ -43,14 +42,6 @@ class MenuTableViewCell: UITableViewCell {
         
         menuImage.image = dish.image
         menuName.text = dish.name
-        
-        // if dish qty is 0, do not display qty
-        if dish.qty == 0 {
-            menuQty.text = ""
-        } else {
-        menuQty.text = "x" + String(format: "%.0f", dish.qty)
-        }
-        
         menuPrice.text = "$ " + String(format: "%.2f", dish.price)
         menuSwitch.isOn = dish.isSelected
     }

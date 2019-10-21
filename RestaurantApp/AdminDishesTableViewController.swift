@@ -169,7 +169,7 @@ class AdminDishesTableViewController: UITableViewController {
     
     // Prepares segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Override to prepare segue and pass reference of this ViewController to AddNewDishViewController
+        // Override to prepare segue and pass reference of this ViewController to AddNewDishViewController and EditDishViewController
         if let addNewDishVC = segue.destination as? AddNewDishViewController {
             addNewDishVC.adminTableViewVC = self
         }
@@ -228,6 +228,7 @@ class AdminDishesTableViewController: UITableViewController {
             dishInfo = dessertDishes[indexPathSelected]
         }
     
+        // Move to EditDishViewController to modify selected dish item
         performSegue(withIdentifier: "editDishSegue", sender: dishInfo)
     }
     

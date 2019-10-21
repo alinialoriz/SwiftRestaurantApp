@@ -164,6 +164,44 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
 
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt
+        indexPath: IndexPath) {
+        
+        // Check section number index
+        let dish = indexPath.section
+        // Get the row number for selected on the TableView
+        let indexPathRow = tableView.indexPathForSelectedRow!
+        // Store indexPathRow to global variable
+        indexPathSelected = indexPathRow.row
+        var dishInfo : Dish
+        
+        // Display dish object in its designated section
+        if dish == 0 {
+            dishInfo = entreeDishes[indexPathSelected]
+        } else if dish == 1 {
+            dishInfo = mainDishes[indexPathSelected]
+        } else {
+            dishInfo = dessertDishes[indexPathSelected]
+        }
+        
+        // Move to EditOrderViewController to set order quantity of selected dish item
+        performSegue(withIdentifier: "addOrderSegue", sender: dishInfo)
+    }
+    
+    // Prepares segue to EditOrderViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Override to prepare segue and pass reference of this ViewController to EditOrderViewController
+        if let editDishVC = segue.destination as? EditOrderViewController {
+            if let dish = sender as? Dish {
+                editDishVC.selectedDish = dish
+                editDishVC.menuTableVC = self
+                editDishVC.selectedRowInt = indexPathSelected
+            }
+        }
+    }
+    
+    // When add order is clicked, pass "true" switch value items to orderSummary
+    
+    // When menu item is deselected, loop through orderedDishArray, find matching dish and update qty or delete item
 
 }

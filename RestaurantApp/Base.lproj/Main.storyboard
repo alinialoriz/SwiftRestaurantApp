@@ -763,16 +763,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4u-jl-c7B">
-                                            <rect key="frame" x="156.5" y="64" width="57" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="TEh-LX-FXc"/>
-                                                <constraint firstAttribute="width" constant="57" id="w7F-Qt-FNK"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpJ-1k-0lh">
                                             <rect key="frame" x="350" y="33.5" width="51" height="31"/>
                                             <constraints>
@@ -783,13 +773,11 @@
                                     <constraints>
                                         <constraint firstItem="EOz-NX-hwI" firstAttribute="leading" secondItem="Qf8-1J-A4s" secondAttribute="trailing" constant="12" id="7Kl-XD-GAc"/>
                                         <constraint firstItem="Qf8-1J-A4s" firstAttribute="leading" secondItem="YkN-Xx-2uY" secondAttribute="leading" constant="12" id="Iat-cZ-3JF"/>
-                                        <constraint firstItem="H4u-jl-c7B" firstAttribute="top" secondItem="5dL-OA-lun" secondAttribute="bottom" constant="4" id="Szr-hP-cq2"/>
                                         <constraint firstItem="Qf8-1J-A4s" firstAttribute="centerY" secondItem="YkN-Xx-2uY" secondAttribute="centerY" id="c6A-L2-wSe"/>
                                         <constraint firstAttribute="trailing" secondItem="qpJ-1k-0lh" secondAttribute="trailing" constant="15" id="kPZ-tI-Pek"/>
                                         <constraint firstItem="5dL-OA-lun" firstAttribute="top" secondItem="EOz-NX-hwI" secondAttribute="bottom" constant="3" id="nIf-cE-Aap"/>
                                         <constraint firstItem="5dL-OA-lun" firstAttribute="leading" secondItem="Qf8-1J-A4s" secondAttribute="trailing" constant="12" id="oYU-Kr-6sj"/>
                                         <constraint firstItem="EOz-NX-hwI" firstAttribute="top" secondItem="YkN-Xx-2uY" secondAttribute="top" constant="11" id="ovS-lC-QZr"/>
-                                        <constraint firstItem="H4u-jl-c7B" firstAttribute="leading" secondItem="Qf8-1J-A4s" secondAttribute="trailing" constant="12" id="rzU-NW-cIW"/>
                                         <constraint firstItem="qpJ-1k-0lh" firstAttribute="centerY" secondItem="YkN-Xx-2uY" secondAttribute="centerY" id="s9G-AT-CBe"/>
                                         <constraint firstAttribute="trailing" secondItem="EOz-NX-hwI" secondAttribute="trailing" constant="39" id="zdf-gS-bvJ"/>
                                     </constraints>
@@ -798,7 +786,6 @@
                                     <outlet property="menuImage" destination="Qf8-1J-A4s" id="to5-NW-TPQ"/>
                                     <outlet property="menuName" destination="EOz-NX-hwI" id="3bw-Up-AC3"/>
                                     <outlet property="menuPrice" destination="5dL-OA-lun" id="yzy-Pc-mUe"/>
-                                    <outlet property="menuQty" destination="H4u-jl-c7B" id="Rlo-8r-dU0"/>
                                     <outlet property="menuSwitch" destination="qpJ-1k-0lh" id="aEW-xY-ha7"/>
                                 </connections>
                             </tableViewCell>
@@ -810,11 +797,12 @@
                     </tableView>
                     <connections>
                         <outlet property="menuTableView" destination="bGG-gV-OsJ" id="fYy-f5-TS5"/>
+                        <segue destination="j1I-Ul-o88" kind="show" identifier="addOrderSegue" id="1YH-f4-wzg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qb-5W-FMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3737.68115942029" y="-1142.4107142857142"/>
+            <point key="canvasLocation" x="3800" y="-1249"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kct-fj-GF2">
@@ -954,10 +942,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBB-Tk-U0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3737.68115942029" y="-455.35714285714283"/>
+            <point key="canvasLocation" x="3800" y="-455"/>
         </scene>
     </scenes>
     <resources>
         <image name="default-dish" width="472.61538696289062" height="472.61538696289062"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1YH-f4-wzg"/>
+    </inferredMetricsTieBreakers>
 </document>

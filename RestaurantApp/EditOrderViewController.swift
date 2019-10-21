@@ -13,12 +13,14 @@ class EditOrderViewController: UIViewController {
     // Create a variable that holds a reference to StartNewOrderView
     var previousVC = StartNewOrderViewController()
     
+    // Create a variable that holds a reference to MenuTableView
+    var menuTableVC = MenuTableViewController()
+    
     // Create a variable to hold the Dish object from the selected OrderSummaryTableView cell
     var selectedDish = Dish(image: UIImage(named: "default-dish")!, name: "", category: "", qty: 0, price: 0.00, isSelected: false)
     
-    // Create variable to accept index of selectedRow for AdminDishesTableView
+    // Create variable to accept index of selectedRow from OrderSummary
     var selectedRowInt : Int = 0
-    
     
     // UIOutlets
     @IBOutlet weak var navBar: UINavigationBar!
@@ -58,6 +60,8 @@ class EditOrderViewController: UIViewController {
             
             //Reload orderSummary table view
             self.previousVC.orderSummaryTableView.reloadData()
+            //Reload Menu table view
+            self.menuTableVC.menuTableView.reloadData()
             
             // Collapse EditDishView and transfer to AdminDishesTableView on click
         self.navigationController?.popViewController(animated: true)
