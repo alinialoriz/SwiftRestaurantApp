@@ -75,11 +75,17 @@ class EditOrderViewController: UIViewController {
                 alertController.addAction(UIAlertAction(title: "Confirm", style:
                     .default, handler: { action in
                         
-                        // Remove item from orderedDish array
+                        // If user confirms, remove item from orderedDish array
                     self.previousVC.orderedDishes.remove(at: self.selectedRowInt)
+                        
+                        // Flip switch of dish item, that mathes the removed item from orderedDish array
+                        self.findInMenuTable()
                         
                         //Reload orderSummary table view
                         self.previousVC.orderSummaryTableView.reloadData()
+                        
+                        //Reload orderSummary table view
+                        self.menuTableVC.menuTableView.reloadData()
                         
                         // Collapse EditDishView and transfer to AdminDishesTableView on click
                         self.navigationController?.popViewController(animated: true)
@@ -95,5 +101,36 @@ class EditOrderViewController: UIViewController {
         
     }
     
+    // A function that finds the dish item in the menu table view that matches the removed dish item in orderSummary, and flips that dish item's switch off
+    
+    func findInMenuTable() {
+        // Check the category of the selectedDish item
+        if self.selectedDish.category == "Entrée" {
+            // If entree dish, loop through entreeDishes array
+            for entree in menuTableVC.entreeDishes {
+                // Find matching dish name and flip switch off
+                if entree.name == selectedDish.name {
+                    entree.isSelected = false
+                }
+            }
+        } else if self.selectedDish.category == "Main" {
+            // If main dish, loop through mainDishes array
+            for main in menuTableVC.mainDishes {
+                // Find matching dish name and flip switch off
+                if main.name == selectedDish.name {
+                    main.isSelected = false
+                }
+            }
+        } else {
+            // If dessert dish, loop through dessertDishes array
+            for dessert in menuTableVC.dessertDishes {
+                // Find matching dish name and flip switch off
+                if dessert.name == selectedDish.name {
+                    dessert.isSelected = false
+                }
+            }
+        }
+        
+    }
 
 }
