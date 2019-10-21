@@ -78,17 +78,59 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
+            let dishItem = orderedDishes[indexPath.row]
             // Remove dish currently selected from orderedDishes array
             orderedDishes.remove(at: indexPath.row)
             
-            // Reload orderSummary table view
+            // Reload orderSummaryTableView
             orderSummary.reloadData()
+            
+            // When a dish is removed, find removed dish item in MenuTableView and switch dish item off or set qty to 0
+            findInMenuTable(orderedDish: dishItem)
+            
+            // Reload menuTableVie
+            previousVC.menuTableView.reloadData()
             
             // Recompute total cost of ordered dishes
             let totalAmount = computeTotal(dishes: orderedDishes)
             
             // Display new total cost
             totalCost.text = "$ " + String(format: "%.2f", totalAmount)
+        }
+    }
+    
+    // A function that finds the dish item in the menu table view that matches the removed dish item in orderSummary, and flips that dish item's switch off
+    
+    func findInMenuTable(orderedDish : Dish) {
+        // Check the category of the selectedDish item
+        if orderedDish.category == "Entrée" {
+            // If entree dish, loop through entreeDishes array
+            for entree in previousVC.entreeDishes {
+                // Find matching dish name and flip switch off
+                if entree.name == orderedDish.name {
+                    entree.isSelected = false
+                    entree.qty = 0
+                }
+            }
+        } else if orderedDish.category == "Main" {
+            // If main dish, loop through mainDishes array
+            for main in previousVC.mainDishes {
+                // Find matching dish name and flip switch off
+                if main.name == orderedDish.name {
+                    main.isSelected = false
+                    main.qty = 0
+                }
+            }
+            
+        } else {
+            // If dessert dish, loop through dessertDishes array
+            for dessert in previousVC.dessertDishes {
+                // Find matching dish name and flip switch off
+                if dessert.name == orderedDish.name {
+                    dessert.isSelected = false
+                    dessert.qty = 0
+                }
+            }
         }
     }
     
