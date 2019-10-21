@@ -525,7 +525,7 @@
                     </view>
                     <connections>
                         <outlet property="idPicker" destination="EgS-BO-PGt" id="8QQ-bB-NWx"/>
-                        <segue destination="ClU-ag-25N" kind="show" identifier="startOrderSegue" id="xQv-tU-DE5"/>
+                        <segue destination="pll-Ct-wyl" kind="show" identifier="newOrderSegue" id="5XC-6S-5rt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K1A-YG-cFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -704,13 +704,11 @@
                         <outlet property="tableNumber" destination="EWP-hb-1Ge" id="w9B-3Q-olj"/>
                         <outlet property="totalCost" destination="Ztr-cQ-hgi" id="3pP-0H-ezU"/>
                         <outlet property="waitStaffID" destination="6FA-rp-JDG" id="ad0-AH-oZU"/>
-                        <segue destination="pll-Ct-wyl" kind="show" identifier="menuSegue" id="Mb7-sK-bLE"/>
-                        <segue destination="j1I-Ul-o88" kind="show" identifier="editOrderSegue" id="dlH-wa-103"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tF-oR-wQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2904.347826086957" y="-455.35714285714283"/>
+            <point key="canvasLocation" x="2007" y="-1038"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="h3z-5C-W60">
@@ -1035,7 +1033,4 @@
     <resources>
         <image name="default-dish" width="472.61538696289062" height="472.61538696289062"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="1YH-f4-wzg"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -57,14 +57,14 @@ class WaitStaffIDViewController: UIViewController, UIPickerViewDataSource, UIPic
             
         } else {
             //Perform segue to ordering screen
-            performSegue(withIdentifier: "startOrderSegue", sender: selectedID)
+            performSegue(withIdentifier: "newOrderSegue", sender: selectedID)
         }
     }
         
     // Prepares segue to StartNewOrderViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Override to prepare segue and pass reference of this ViewController to StartNewOrderViewController
-        if let orderScreenVC = segue.destination as? StartNewOrderViewController {
+        if let orderScreenVC = segue.destination as?    MenuTableViewController {
             if let staff = sender as? Int {
             orderScreenVC.selectedID = staff
             orderScreenVC.previousVC = self

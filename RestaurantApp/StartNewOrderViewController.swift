@@ -19,6 +19,8 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
     // Create a variable that holds the indexPath of a selected cell to be passed on to a segue
     var indexPathSelected : Int = 0
     
+    // Create EditView segue identifier
+    let editViewSegueIdentifier = "editOrderSegue"
     
     // UIoutlets
     @IBOutlet weak var orderNumber: UILabel!
@@ -30,26 +32,27 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
     // Create an array that contains the ordered Dish objects
     var orderedDishes : [Dish] = []
     
-    // Create 3 Dish objects: dish1, dish2, dish3
-    let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 2, price: 6.00, isSelected: true)
-    let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 1, price: 8.00, isSelected: true)
-    let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Main", qty: 3, price: 6.00, isSelected: true)
+//    // Create 3 Dish objects: dish1, dish2, dish3
+//    let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 2, price: 6.00, isSelected: true)
+//    let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 1, price: 8.00, isSelected: true)
+//    let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Main", qty: 3, price: 6.00, isSelected: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //set waitStaffID to selectedID from previousVC
-        waitStaffID.text = String(selectedID)
+        waitStaffID!.text = String(selectedID)
         
-        // Add Dish objects into the orderedDishes array
-        orderedDishes.append(dish1)
-        orderedDishes.append(dish2)
-        orderedDishes.append(dish3)
+//        // Add Dish objects into the orderedDishes array
+//        orderedDishes.append(dish1)
+//        orderedDishes.append(dish2)
+//        orderedDishes.append(dish3)
+        
         
         // Compute total cost of ordered dishes
         let totalAmount = computeTotal(dishes: orderedDishes)
         // Display total cost
-        totalCost.text = "$ " + String(format: "%.2f", totalAmount)
+        totalCost!.text = "$ " + String(format: "%.2f", totalAmount)
 
     }
     
@@ -76,12 +79,12 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
         //get current item
         let item = orderedDishes[indexPath.row]
         
-        cell.dishName.text = item.name
-        cell.dishQty.text = String(item.qty)
+        cell.dishName!.text = item.name
+        cell.dishQty!.text = String(item.qty)
         
         //Calculate total price of ordered dish
         let orderCost = Double(item.qty) * item.price
-        cell.orderPrice.text = "$ " + String(format: "%.2f", orderCost)
+        cell.orderPrice!.text = "$ " + String(format: "%.2f", orderCost)
         
         return cell
     }
@@ -96,7 +99,7 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
         
         let dishInfo = orderedDishes[indexPath.row]
         // Open order edit mode when cell item in the Order Summary is clicked
-        performSegue(withIdentifier: "editOrderSegue", sender: dishInfo)
+        performSegue(withIdentifier: editViewSegueIdentifier, sender: dishInfo)
         
     }
     
@@ -108,6 +111,7 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
                 editOrderScreenVC.selectedDish = dish
                 editOrderScreenVC.previousVC = self
             editOrderScreenVC.selectedRowInt = indexPathSelected
+                editOrderScreenVC.segueIdentifier = editViewSegueIdentifier
             }
         }
     }
