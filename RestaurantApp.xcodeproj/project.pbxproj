@@ -88,17 +88,17 @@
 				81A00F9B235B1C18000896FB /* AddNewDishViewController.swift */,
 				81A00F9D235B5718000896FB /* EditDishViewController.swift */,
 				81A00FA1235BD922000896FB /* WaitStaffIDViewController.swift */,
-				816AAEC2235D8CA200467821 /* StartNewOrderViewController.swift */,
 				81A00FA9235C618D000896FB /* OrderTableViewCell.swift */,
 				816AAEC4235D959100467821 /* MenuTableViewController.swift */,
 				816AAEC8235DC35E00467821 /* MenuTableViewCell.swift */,
 				816AAEC6235D9A5700467821 /* EditOrderViewController.swift */,
-				81A00F8023591EE5000896FB /* Main.storyboard */,
 				816AAECA235DF1A800467821 /* OrderSummaryViewController.swift */,
+				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
 				81A00F8B23591EE7000896FB /* Info.plist */,
 				81A00F8323591EE5000896FB /* RestaurantApp.xcdatamodeld */,
+				816AAEC2235D8CA200467821 /* StartNewOrderViewController.swift */,
 			);
 			path = RestaurantApp;
 			sourceTree = "<group>";
