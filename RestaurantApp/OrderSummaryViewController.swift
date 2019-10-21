@@ -19,6 +19,12 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     // Accept selectedID from MenuTableView
     var selectedID : Int = 0
     
+    // Create a variable that holds the indexPath of a selected cell to be passed on to a segue
+    var indexPathSelected : Int = 0
+    
+    // Create EditView segue identifier
+    let editViewSegueIdentifier = "editOrderSegue"
+    
     // UIOutlets
     @IBOutlet weak var orderNumber: UILabel!
     @IBOutlet weak var waitStaffID: UILabel!
@@ -79,6 +85,7 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
         if editingStyle == .delete {
             
             let dishItem = orderedDishes[indexPath.row]
+            
             // Remove dish currently selected from orderedDishes array
             orderedDishes.remove(at: indexPath.row)
             
@@ -88,7 +95,7 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
             // When a dish is removed, find removed dish item in MenuTableView and switch dish item off or set qty to 0
             findInMenuTable(orderedDish: dishItem)
             
-            // Reload menuTableVie
+            // Reload menuTableView
             previousVC.menuTableView.reloadData()
             
             // Recompute total cost of ordered dishes
@@ -145,5 +152,6 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
         // Set up notif
         //**********************
     }
+    
     
 }

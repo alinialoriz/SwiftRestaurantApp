@@ -203,7 +203,6 @@ class MenuTableViewController: UITableViewController {
                 editDishVC.selectedDish = dish
                 editDishVC.menuTableVC = self
                 editDishVC.selectedRowInt = indexPathSelected
-                editDishVC.segueIdentifier = editViewSegueIdentifier
             }
         }
         
