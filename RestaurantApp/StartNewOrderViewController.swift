@@ -16,6 +16,10 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
     // Create a variable to hold the selectedID from WaitStaffIDTableView
     var selectedID : Int = 0
     
+    // Create a variable that holds the indexPath of a selected cell to be passed on to a segue
+    var indexPathSelected : Int = 0
+    
+    
     // UIoutlets
     @IBOutlet weak var orderNumber: UILabel!
     @IBOutlet weak var waitStaffID: UILabel!
@@ -87,6 +91,8 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
         
         //Get the index value  of selected cell on the orderSummaryTableView
         let indexPath = tableView.indexPathForSelectedRow!
+        // Store indexPathRow to global variable
+        indexPathSelected = indexPath.row
         
         let dishInfo = orderedDishes[indexPath.row]
         // Open order edit mode when cell item in the Order Summary is clicked
@@ -101,6 +107,7 @@ class StartNewOrderViewController: UIViewController, UITableViewDelegate, UITabl
             if let dish = sender as? Dish {
                 editOrderScreenVC.selectedDish = dish
                 editOrderScreenVC.previousVC = self
+            editOrderScreenVC.selectedRowInt = indexPathSelected
             }
         }
     }

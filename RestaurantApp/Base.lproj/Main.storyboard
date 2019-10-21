@@ -817,12 +817,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add to Order">
+                                <state key="normal" title="Edit Order Quantity">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="addNewDishBtn:" destination="s4O-94-EyY" eventType="touchUpInside" id="XhJ-cA-StU"/>
-                                    <action selector="editBtn:" destination="j1I-Ul-o88" eventType="touchUpInside" id="kPj-oB-MCS"/>
+                                    <action selector="editBtn:" destination="j1I-Ul-o88" eventType="touchUpInside" id="9U7-ya-vQV"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="fsT-Yj-3nT">

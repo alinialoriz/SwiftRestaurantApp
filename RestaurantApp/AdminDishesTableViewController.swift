@@ -19,6 +19,7 @@ class AdminDishesTableViewController: UITableViewController {
     var mainDishes : [Dish] = []
     var dessertDishes : [Dish] = []
     
+    // Create a variable that holds the indexPath of a selected cell to be passed on to a segue
     var indexPathSelected : Int = 0
     
     // Implement a segue for addBtn to move to Add New Dish form view
@@ -211,9 +212,9 @@ class AdminDishesTableViewController: UITableViewController {
     
         // Check section number index
         let dish = indexPath.section
-        //Get the row number for selected on the TableView
+        // Get the row number for selected on the TableView
         let indexPathRow = tableView.indexPathForSelectedRow!
-    
+        // Store indexPathRow to global variable
         indexPathSelected = indexPathRow.row
         var dishInfo : Dish
     
