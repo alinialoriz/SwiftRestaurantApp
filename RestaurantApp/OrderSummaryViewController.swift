@@ -149,8 +149,28 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     
     // On click of submit order button, send Alert box/ SMS
     @IBAction func submitBtn(_ sender: Any) {
-        // Set up notif
-        //**********************
+        // Set up alert box
+        // On submit, check if Table Number input field is not empty
+        if tableNumber.text!.isEmpty == true {
+            //  If empty, flag an alert to fill input field before submission
+            let alertController = UIAlertController(title: "Error Order Submission", message: "\nCannot submit an order with missing Table Number input field.", preferredStyle : .alert)
+            
+            let alertAction = UIAlertAction (title: "Dismiss", style: .cancel, handler: nil)
+            
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            
+            tableNumber.attributedPlaceholder = NSAttributedString(string: "missing field", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        } else {
+            // Else if not empty, alert successful submission
+            let alertController = UIAlertController(title: "Successful Order Submission", message: "\nYour Order Number \(orderNumber.text!)\nhas been sent to the kitchen.", preferredStyle: .alert)
+            
+           let alertAction = UIAlertAction (title: "Dismiss", style: .cancel, handler: nil)
+            
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            
+        }
     }
     
     
