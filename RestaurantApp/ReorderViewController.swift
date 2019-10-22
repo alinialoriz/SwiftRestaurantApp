@@ -93,7 +93,14 @@ class ReorderViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func updateBtn(_ sender: Any) {
+       // Update properties of selectedOrder in the AllOrderViewController
+        self.previousVC.ordersArray[self.indexPathSelected].orderedDishes = selectedOrder.orderedDishes
         
+            self.previousVC.ordersArray[self.indexPathSelected].orderTotal = amountDue
+        //Reload Menu table view
+        self.previousVC.allOrders.reloadData()
+        // Collapse EditOrderView and transfer to previously accessed view controller on click
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
