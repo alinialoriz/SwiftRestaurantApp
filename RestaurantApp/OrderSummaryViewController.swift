@@ -187,9 +187,8 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
             // When alert box is dismissed, revert to menu dish and empty the orderedDish array
             alertController.addAction(UIAlertAction (title: "Dismiss", style: .cancel, handler: {action in
                 
-                self.orderedDishes = []
-                self.orderNumber.text = String(Int(self.orderNum)! + 1)
-                self.tableNumber.text = ""
+                // Perform segue to AllOrdersTableView
+                self.performSegue(withIdentifier: "viewAllOrders", sender: newOrder)
                 
                 // For each Dish in the menuTableView, set qty back to 0 and set switch off
                 for eachDish in self.previousVC.entreeDishes {
@@ -208,17 +207,19 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
                 // Reload menuTableView
                 self.previousVC.menuTableView.reloadData()
                 
-                 // Reload orderSummary
-                    self.orderSummary.reloadData()
                 
                 // Reset total amount to 0.00
                 self.totalAmount = 0.00
                 self.totalCost.text =  "$ " + String(format: "%.2f", self.totalAmount)
+                // Increment order number
+                self.orderNumber.text = String(Int(self.orderNum)! + 1)
+                // Reset table number
+                self.tableNumber.text = ""
+                //Empty orderedDishes array
+                self.orderedDishes = []
                 
-                
-                // Perform segue to AllOrdersTableView
-                self.performSegue(withIdentifier: "viewAllOrders", sender: newOrder)
-                
+                // Reload orderSummary
+                self.orderSummary.reloadData()
             }))
             present(alertController, animated: true, completion: nil)
             
