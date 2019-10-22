@@ -15,6 +15,18 @@ class ViewAllOrdersTableViewCell: UITableViewCell {
     @IBOutlet weak var staffNumber: UILabel!
     @IBOutlet weak var orderTotal: UILabel!
     
+    //A function to populate a menu cell with the
+    //value of a dish object
+    
+    func setOrder(order : Order) {
+        
+        orderNumber.text = "Order Number: \(order.orderNumber)"
+        tableNumber.text = "Table Number: " + String(order.tableNumber)
+        staffNumber.text = "Staff Number: " + String(order.staffNumber)
+        orderTotal.text = "$ " + String(format: "%.2f", order.orderTotal)
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

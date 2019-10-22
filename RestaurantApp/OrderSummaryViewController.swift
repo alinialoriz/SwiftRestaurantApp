@@ -20,7 +20,7 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     var selectedID : Int = 0
     
     // Create a variable to hold the orderNumber from OrderSummaryView
-    var orderNum : String = ""
+    var orderNum : String = "204"
     
     // Create a variable to hold the tableNumber from OrderSummaryView
     var tableNum : Int = 0
@@ -42,6 +42,8 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set orderNumber
+        orderNumber.text = orderNum
         // Set up waitStaffID
         waitStaffID!.text = String(selectedID)
 
