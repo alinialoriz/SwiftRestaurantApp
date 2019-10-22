@@ -99,7 +99,7 @@ class EditOrderViewController: UIViewController {
                 //Reload Menu table view
                 self.menuTableVC.menuTableView.reloadData()
             
-                // Collapse EditDishView and transfer to AdminDishesTableView on click
+                // Collapse EditDishView and transfer to MenuTableView
             self.navigationController?.popViewController(animated: true)
         }
     }

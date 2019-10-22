@@ -165,9 +165,34 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
             // Else if not empty, alert successful submission
             let alertController = UIAlertController(title: "Successful Order Submission", message: "\nYour Order Number \(orderNumber.text!)\nhas been sent to the kitchen.", preferredStyle: .alert)
             
-           let alertAction = UIAlertAction (title: "Dismiss", style: .cancel, handler: nil)
-            
-            alertController.addAction(alertAction)
+            // When alert box is dismissed, revert to menu dish and empty the orderedDish array
+            alertController.addAction(UIAlertAction (title: "Dismiss", style: .cancel, handler: {action in
+                
+                self.orderedDishes = []
+                self.orderNumber.text = ""
+                self.tableNumber.text = ""
+                
+                // For each Dish in the menuTableView, set qty back to 0 and set switch off
+                for eachDish in self.previousVC.entreeDishes {
+                    eachDish.qty = 0
+                    eachDish.isSelected = false
+                }
+                for eachDish in self.previousVC.mainDishes {
+                    eachDish.qty = 0
+                    eachDish.isSelected = false
+                }
+                for eachDish in self.previousVC.dessertDishes {
+                    eachDish.qty = 0
+                    eachDish.isSelected = false
+                }
+                
+                // Reload menuTableView
+                self.previousVC.menuTableView.reloadData()
+                
+                // Collapse OrderSummaryView and transfer to MenuTableView
+                self.navigationController?.popViewController(animated: true)
+                
+            }))
             present(alertController, animated: true, completion: nil)
             
         }
