@@ -11,6 +11,7 @@
 		816AAEC7235D9A5700467821 /* EditOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEC6235D9A5700467821 /* EditOrderViewController.swift */; };
 		816AAEC9235DC35E00467821 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAEC8235DC35E00467821 /* MenuTableViewCell.swift */; };
 		816AAECB235DF1A800467821 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAECA235DF1A800467821 /* OrderSummaryViewController.swift */; };
+		816AAECD235E810E00467821 /* AllOrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816AAECC235E810E00467821 /* AllOrdersTableViewController.swift */; };
 		81A00F7D23591EE5000896FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F7C23591EE5000896FB /* AppDelegate.swift */; };
 		81A00F7F23591EE5000896FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A00F7E23591EE5000896FB /* ViewController.swift */; };
 		81A00F8223591EE5000896FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A00F8023591EE5000896FB /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		816AAEC6235D9A5700467821 /* EditOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderViewController.swift; sourceTree = "<group>"; };
 		816AAEC8235DC35E00467821 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		816AAECA235DF1A800467821 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
+		816AAECC235E810E00467821 /* AllOrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOrdersTableViewController.swift; sourceTree = "<group>"; };
 		81A00F7923591EE5000896FB /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A00F7C23591EE5000896FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81A00F7E23591EE5000896FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				816AAEC8235DC35E00467821 /* MenuTableViewCell.swift */,
 				816AAEC6235D9A5700467821 /* EditOrderViewController.swift */,
 				816AAECA235DF1A800467821 /* OrderSummaryViewController.swift */,
+				816AAECC235E810E00467821 /* AllOrdersTableViewController.swift */,
 				81A00F8023591EE5000896FB /* Main.storyboard */,
 				81A00F8623591EE7000896FB /* Assets.xcassets */,
 				81A00F8823591EE7000896FB /* LaunchScreen.storyboard */,
@@ -185,6 +188,7 @@
 				81A00F8523591EE5000896FB /* RestaurantApp.xcdatamodeld in Sources */,
 				81A00F9C235B1C18000896FB /* AddNewDishViewController.swift in Sources */,
 				81A00F922359A4BD000896FB /* AdminDishesTableViewController.swift in Sources */,
+				816AAECD235E810E00467821 /* AllOrdersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

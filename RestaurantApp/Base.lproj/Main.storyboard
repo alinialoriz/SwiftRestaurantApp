@@ -545,6 +545,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Menu Dishes" id="uIv-oX-wPS">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="organize" id="Tfe-Fw-dar">
+                                        <connections>
+                                            <action selector="viewOrdersBtn:" destination="pll-Ct-wyl" id="odv-MX-qJ8"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="Add to Order" image="order-summary" id="xYx-yw-PJx">
                                         <connections>
                                             <action selector="addOrderBtn:" destination="pll-Ct-wyl" id="Y0i-wg-FvU"/>
@@ -623,6 +628,7 @@
                         <outlet property="menuTableView" destination="bGG-gV-OsJ" id="fYy-f5-TS5"/>
                         <segue destination="j1I-Ul-o88" kind="show" identifier="addOrderSegue" id="1YH-f4-wzg"/>
                         <segue destination="hhN-TD-esb" kind="show" identifier="submitOrder" id="Pv4-0Q-aOe"/>
+                        <segue destination="v7w-bZ-eQ0" kind="show" identifier="orderHistory" id="PzA-4B-9Kx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qb-5W-FMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -661,7 +667,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Order Summary" id="m3f-jM-foD">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="organize" id="J5G-t8-UKM">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="organize" id="J5G-t8-UKM">
                                             <connections>
                                                 <action selector="orderHistory:" destination="hhN-TD-esb" id="R0q-Zn-VJd"/>
                                             </connections>
@@ -802,11 +808,51 @@
                         <outlet property="totalCost" destination="fDM-Z8-cp0" id="0yL-gJ-u5d"/>
                         <outlet property="waitStaffID" destination="LLG-cb-R6k" id="sgN-gr-SWu"/>
                         <segue destination="j1I-Ul-o88" kind="show" identifier="editOrderSegue" id="wRa-20-wej"/>
+                        <segue destination="v7w-bZ-eQ0" kind="show" identifier="viewAllOrders" id="NdI-Uw-bao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7g-6q-kcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4129" y="-1159"/>
+            <point key="canvasLocation" x="4058" y="-1157"/>
+        </scene>
+        <!--All Orders Table View Controller-->
+        <scene sceneID="QEu-6T-NxQ">
+            <objects>
+                <tableViewController id="v7w-bZ-eQ0" customClass="AllOrdersTableViewController" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3aJ-4W-bmp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="Iw7-P2-wta">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="All Orders" id="cm8-w7-CPM"/>
+                            </items>
+                        </navigationBar>
+                        <navigationBar key="tableFooterView" contentMode="scaleToFill" id="8cv-xe-drT">
+                            <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KSE-bC-Jqk">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KSE-bC-Jqk" id="4jj-hZ-tqt">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="v7w-bZ-eQ0" id="YqE-TO-Bvv"/>
+                            <outlet property="delegate" destination="v7w-bZ-eQ0" id="ca5-kP-r6T"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C6V-HR-DA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4058" y="-1894"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kct-fj-GF2">
@@ -946,7 +992,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBB-Tk-U0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4129" y="-427"/>
+            <point key="canvasLocation" x="4058" y="-427"/>
         </scene>
     </scenes>
     <resources>
@@ -954,6 +1000,7 @@
         <image name="order-summary" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wRa-20-wej"/>
+        <segue reference="1YH-f4-wzg"/>
+        <segue reference="PzA-4B-9Kx"/>
     </inferredMetricsTieBreakers>
 </document>

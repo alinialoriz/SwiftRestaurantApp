@@ -252,20 +252,12 @@ class MenuTableViewController: UITableViewController {
         
         performSegue(withIdentifier: "submitOrder", sender: selectedDishes)
         
-//        // Add selected dishes to orderedDishes array in orderSummary
-//        // Loop through all dishes in selectedDishes array
-//        for dish in selectedDishes {
-//            previousVC.orderedDishes.append(dish)
-//            previousVC.orderSummaryTableView.reloadData()
-//
-//        }
-        
-//        //Reload orderSummary table view
-//        previousVC.orderSummaryTableView.reloadData()
-//
-//        // Collapse MenuTableView and transfer to OrderSummaryTableView on click
-//        self.navigationController?.popViewController(animated: true)
     }
     
+    // When folder icon is clicked, perform segue to view all orders
+    
+    @IBAction func viewOrdersBtn(_ sender: Any) {
+        performSegue(withIdentifier: "orderHistory", sender: nil)
+    }
 }
 

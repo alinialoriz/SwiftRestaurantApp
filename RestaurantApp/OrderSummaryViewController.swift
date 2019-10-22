@@ -143,8 +143,8 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     
     // On click of folder icon, open list of all orders by specific staff member
     @IBAction func orderHistory(_ sender: Any) {
-        // Perfom segway to order history screen
-        //********************
+        // Perfom segway to view all orders
+        performSegue(withIdentifier: "viewAllOrders", sender: nil)
     }
     
     // On click of submit order button, send Alert box/ SMS
