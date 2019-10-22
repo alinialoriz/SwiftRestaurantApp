@@ -175,7 +175,7 @@ class MenuTableViewController: UITableViewController {
         
         // Check section number index
         let dish = indexPath.section
-        // Get the row number for selected on the TableView
+        // Get the row number for selected dish on the TableView
         let indexPathRow = tableView.indexPathForSelectedRow!
         // Store indexPathRow to global variable
         indexPathSelected = indexPathRow.row
