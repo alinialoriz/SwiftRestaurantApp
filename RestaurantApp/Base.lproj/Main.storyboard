@@ -696,15 +696,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="201" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-XV-Ire">
-                                <rect key="frame" x="189" y="151" width="28" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="201" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-XV-Ire">
+                                <rect key="frame" x="189" y="151" width="98" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLG-cb-R6k">
-                                <rect key="frame" x="188" y="189" width="39" height="25"/>
+                                <rect key="frame" x="188" y="189" width="99" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -813,7 +813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7g-6q-kcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4058" y="-1157"/>
+            <point key="canvasLocation" x="4057.971014492754" y="-1157.1428571428571"/>
         </scene>
         <!--All Orders Table View Controller-->
         <scene sceneID="QEu-6T-NxQ">
@@ -906,6 +906,9 @@
                             <outlet property="delegate" destination="v7w-bZ-eQ0" id="ca5-kP-r6T"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="allOrders" destination="3aJ-4W-bmp" id="evt-L5-pJp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C6V-HR-DA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1057,7 +1060,7 @@
         <image name="order-summary" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1YH-f4-wzg"/>
-        <segue reference="PzA-4B-9Kx"/>
+        <segue reference="wRa-20-wej"/>
+        <segue reference="NdI-Uw-bao"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,11 +19,18 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
     // Accept selectedID from MenuTableView
     var selectedID : Int = 0
     
+    // Create a variable to hold the orderNumber from OrderSummaryView
+    var orderNum : String = ""
+    
+    // Create a variable to hold the tableNumber from OrderSummaryView
+    var tableNum : Int = 0
+    
+    // Create a variable to hold the orderTotal from OrderSummaryView
+    var totalAmount : Double = 0.00
+    
     // Create a variable that holds the indexPath of a selected cell to be passed on to a segue
     var indexPathSelected : Int = 0
-    
-    // Create EditView segue identifier
-    let editViewSegueIdentifier = "editOrderSegue"
+
     
     // UIOutlets
     @IBOutlet weak var orderNumber: UILabel!
@@ -39,7 +46,7 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
         waitStaffID!.text = String(selectedID)
 
         // Compute total cost of ordered dishes
-        let totalAmount = computeTotal(dishes: orderedDishes)
+        totalAmount = computeTotal(dishes: orderedDishes)
         // Display total cost
         totalCost!.text = "$ " + String(format: "%.2f", totalAmount)
     }
@@ -99,7 +106,7 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
             previousVC.menuTableView.reloadData()
             
             // Recompute total cost of ordered dishes
-            let totalAmount = computeTotal(dishes: orderedDishes)
+            totalAmount = computeTotal(dishes: orderedDishes)
             
             // Display new total cost
             totalCost.text = "$ " + String(format: "%.2f", totalAmount)
@@ -147,6 +154,8 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
         performSegue(withIdentifier: "viewAllOrders", sender: nil)
     }
     
+    
+    
     // On click of submit order button, send Alert box/ SMS
     @IBAction func submitBtn(_ sender: Any) {
         // Set up alert box
@@ -163,13 +172,21 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
             tableNumber.attributedPlaceholder = NSAttributedString(string: "missing field", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else {
             // Else if not empty, alert successful submission
+            
+            orderNum = orderNumber.text!
+            tableNum = Int(tableNumber.text!)!
+            
             let alertController = UIAlertController(title: "Successful Order Submission", message: "\nYour Order Number \(orderNumber.text!)\nhas been sent to the kitchen.", preferredStyle: .alert)
+            
+            // Create Order Object
+            
+            let newOrder = Order(oNum: orderNum, tNum: tableNum, sNum: selectedID, oTotal: totalAmount, oDishes: orderedDishes)
             
             // When alert box is dismissed, revert to menu dish and empty the orderedDish array
             alertController.addAction(UIAlertAction (title: "Dismiss", style: .cancel, handler: {action in
                 
                 self.orderedDishes = []
-                self.orderNumber.text = ""
+                self.orderNumber.text = String(Int(self.orderNum)! + 1)
                 self.tableNumber.text = ""
                 
                 // For each Dish in the menuTableView, set qty back to 0 and set switch off
@@ -189,8 +206,16 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
                 // Reload menuTableView
                 self.previousVC.menuTableView.reloadData()
                 
-                // Collapse OrderSummaryView and transfer to MenuTableView
-                self.navigationController?.popViewController(animated: true)
+                 // Reload orderSummary
+                    self.orderSummary.reloadData()
+                
+                // Reset total amount to 0.00
+                self.totalAmount = 0.00
+                self.totalCost.text =  "$ " + String(format: "%.2f", self.totalAmount)
+                
+                
+                // Perform segue to AllOrdersTableView
+                self.performSegue(withIdentifier: "viewAllOrders", sender: newOrder)
                 
             }))
             present(alertController, animated: true, completion: nil)
@@ -198,5 +223,13 @@ class OrderSummaryViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    
+    // Prepare segue to viewAllOrders screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Override to prepare segue and pass reference of this ViewController to EditOrderViewController
+        if let viewAllOrdersVC = segue.destination as? AllOrdersTableViewController {
+            if let order = sender as? Order {
+                viewAllOrdersVC.newOrder = order
+            }
+        }
+    }
 }

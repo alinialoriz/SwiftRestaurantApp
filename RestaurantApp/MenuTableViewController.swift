@@ -14,7 +14,7 @@ class MenuTableViewController: UITableViewController {
     
     @IBOutlet var menuTableView: UITableView!
     
-    // Create a variable that holds a reference to StartNewOrderView
+    // Create a variable that holds a reference to WaitStaffIDView
     var previousVC = WaitStaffIDViewController()
     
     // Create a variable to hold the selectedID from WaitStaffIDTableView
