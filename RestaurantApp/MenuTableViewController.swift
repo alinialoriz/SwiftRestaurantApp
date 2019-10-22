@@ -49,9 +49,9 @@ class MenuTableViewController: UITableViewController {
         var temporaryDishes : [Dish] = []
         
         // Create 3 Dish objects: dish1, dish2, dish3
-        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 0, price: 6.00, isSelected: false)
-        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 0, price: 8.00, isSelected: false)
-        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Entrée", qty: 0, price: 6.00, isSelected: false)
+        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Entrée", qty: 0, price: 6.00, isSelected: false, info: "a Chinese wonton dumpling which is fried until brown on one side, then turned and simmered in a small amount of broth")
+        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 0, price: 8.00, isSelected: false, info: "a Chinese steamed bun (baozi) from the Jiangnan region. Also called a 'soup dumpling' because they are filled with hot soup")
+        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Entrée", qty: 0, price: 6.00, isSelected: false, info: "a deep fried dim sum filled with vegetables and meat")
         
         // Add Dish objects into the temporaryDishes array
         temporaryDishes.append(dish1)
@@ -70,9 +70,9 @@ class MenuTableViewController: UITableViewController {
         var temporaryDishes : [Dish] = []
         
         // Create 3 Dish objects: dish1, dish2, dish3
-        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Main", qty: 0, price: 6.00, isSelected: false)
-        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 0, price: 8.00, isSelected: false)
-        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Main", qty: 0, price: 6.00, isSelected: false)
+        let dish1 = Dish(image: UIImage(named: "kung-pao-chicken")!, name: "Kung pao chicken", category: "Main", qty: 0, price: 15.00, isSelected: false, info: "a classic Chinese stir-fried chicken dish with the perfect combination of salty, sweet and spicy flavor")
+        let dish2 = Dish(image: UIImage(named: "sweet-sour-pork")!, name: "Sweet sour pork", category: "Main", qty: 0, price: 16.00, isSelected: false, info: "a Chinese dish consisting of pork that has been battered and deep-fried, then served with a sweet and sour sauce")
+        let dish3 = Dish(image: UIImage(named: "beef-brocoli")!, name: "Beef broccoli stir fry", category: "Main", qty: 0, price: 18.00, isSelected: false, info: "a combination of beef and broccoli fried in a small amount of very hot oil while being stirred in a wok")
         
         // Add Dish objects into the temporaryDishes array
         temporaryDishes.append(dish1)
@@ -91,9 +91,9 @@ class MenuTableViewController: UITableViewController {
         var temporaryDishes : [Dish] = []
         
         // Create 3 Dish objects: dish1, dish2, dish3
-        let dish1 = Dish(image: UIImage(named: "potstickers")!, name: "Potstickers", category: "Dessert", qty: 0, price: 6.00, isSelected: false)
-        let dish2 = Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Dessert", qty: 0, price: 8.00, isSelected: false)
-        let dish3 = Dish(image: UIImage(named: "spring-rolls")!, name: "Spring rolls", category: "Dessert", qty: 0, price: 6.00, isSelected: false)
+        let dish1 = Dish(image: UIImage(named: "sesame-balls")!, name: "Sesame balls", category: "Dessert", qty: 0, price: 6.00, isSelected: false, info: "a type of fried Chinese pastry made from glutinous rice flour")
+        let dish2 = Dish(image: UIImage(named: "mango-tapioca")!, name: "Mango Tapioca", category: "Dessert", qty: 0, price: 8.00, isSelected: false, info: "a round and dense Chinese pastry with salted egg yolk in the center traditionally eaten during the Mid-Autumn Festival")
+        let dish3 = Dish(image: UIImage(named: "mooncake")!, name: "Mooncake", category: "Dessert", qty: 0, price: 10.00, isSelected: false, info: "a sweet, tangy and creamy summer dessert made with mangoes, tapioca pearls, and milk")
         
         // Add Dish objects into the temporaryDishes array
         temporaryDishes.append(dish1)

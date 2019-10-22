@@ -25,11 +25,11 @@ class AllOrdersTableViewController: UITableViewController {
     var indexPathSelected : Int = 0
     
     // Instantiate orders
-    let order1 = Order(oNum: "200", tNum: 12, sNum: 1002, oTotal: 16.00, oDishes: [Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 2, price: 8.00, isSelected: true)])
+    let order1 = Order(oNum: "200", tNum: 12, sNum: 1002, oTotal: 16.00, oDishes: [Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 2, price: 8.00, isSelected: true, info:"")])
     
-    let order2 = Order(oNum: "201", tNum: 8, sNum: 1003, oTotal: 28.00, oDishes: [Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 2, price: 8.00, isSelected: true), Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 1, price: 12.00, isSelected: true)])
+    let order2 = Order(oNum: "201", tNum: 8, sNum: 1003, oTotal: 28.00, oDishes: [Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Entrée", qty: 2, price: 8.00, isSelected: true, info: ""), Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 1, price: 12.00, isSelected: true, info: "")])
     
-    let order3 = Order(oNum: "202", tNum: 4, sNum: 1004, oTotal: 14.00, oDishes: [Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 1, price: 14.00, isSelected: true)])
+    let order3 = Order(oNum: "202", tNum: 4, sNum: 1004, oTotal: 14.00, oDishes: [Dish(image: UIImage(named: "xiao-long-bao")!, name: "Xiao long bao", category: "Main", qty: 1, price: 14.00, isSelected: true, info: "")])
     
     
     override func viewDidLoad() {

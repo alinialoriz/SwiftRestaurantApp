@@ -14,7 +14,7 @@ class EditOrderViewController: UIViewController {
     var menuTableVC = MenuTableViewController()
     
     // Create a variable to hold the Dish object from the selected OrderSummaryTableView cell
-    var selectedDish = Dish(image: UIImage(named: "default-dish")!, name: "", category: "", qty: 0, price: 0.00, isSelected: false)
+    var selectedDish = Dish(image: UIImage(named: "default-dish")!, name: "", category: "", qty: 0, price: 0.00, isSelected: false, info: "")
     
     // Create variable to accept index of selectedRow from OrderSummary
     var selectedRowInt : Int = 0
@@ -26,7 +26,7 @@ class EditOrderViewController: UIViewController {
     @IBOutlet weak var selectedDishPrice: UILabel!
     @IBOutlet weak var selectedDishQty: UITextField!
     @IBOutlet weak var editQtyStepper: UIStepper!
-    
+    @IBOutlet weak var selectedDishInfo: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,7 @@ class EditOrderViewController: UIViewController {
         selectedDishImage.image = selectedDish.image
         selectedDishCategory.text = selectedDish.category + " Dish"
         selectedDishPrice.text = "$ " + String(format: "%.2f", selectedDish.price)
+        selectedDishInfo.text = selectedDish.info
         selectedDishQty.text = String(selectedDish.qty)
         // Set the value of the stepper to equal selectedDish qty
         editQtyStepper.value = Double(selectedDish.qty)

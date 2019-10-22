@@ -14,12 +14,13 @@ class EditDishViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var selectedDishName: UITextField!
     @IBOutlet weak var selectedDishCategory: UISegmentedControl!
     @IBOutlet weak var selectedDishPrice: UITextField!
+    @IBOutlet weak var selectedDishInfo: UITextView!
     
     // Create a variable that holds a reference to AdminDishesTableView
     var adminTableViewVC = AdminDishesTableViewController()
     
     // Create variable to accept values passed from AdminDishesTableView
-    var selectedDish = Dish(image: UIImage(named: "default-dish")!, name: "", category: "", qty: 0, price: 0.00, isSelected: false)
+    var selectedDish = Dish(image: UIImage(named: "default-dish")!, name: "", category: "", qty: 0, price: 0.00, isSelected: false, info:"")
     
     // Create variable to accept index of selectedRow for AdminDishesTableView
     var selectedRowInt : Int = 0
@@ -41,6 +42,7 @@ class EditDishViewController: UIViewController, UIImagePickerControllerDelegate,
             selectedDishCategory.selectedSegmentIndex = 0
             selectedDishCategory.setEnabled(false, forSegmentAt: 1)
             selectedDishCategory.setEnabled(false, forSegmentAt: 2)
+
         } else if selectedDish.category == "Main" {
             selectedDishCategory.selectedSegmentIndex = 1
             selectedDishCategory.setEnabled(false, forSegmentAt: 0)
@@ -53,7 +55,8 @@ class EditDishViewController: UIViewController, UIImagePickerControllerDelegate,
         
         selectedDishPrice.text = String(format: "%.2f", selectedDish.price)
         
-        print(selectedRowInt)
+        selectedDishInfo.text = selectedDish.info
+        
     }
     @IBAction func editBtn(_ sender: Any) {
         
@@ -70,6 +73,7 @@ class EditDishViewController: UIViewController, UIImagePickerControllerDelegate,
                 self.adminTableViewVC.entreeDishes[self.selectedRowInt].name = self.selectedDishName.text!
                 self.adminTableViewVC.entreeDishes[self.selectedRowInt].price = Double(self.selectedDishPrice.text!)!
                 self.adminTableViewVC.entreeDishes[self.selectedRowInt].image = self.selectedDishImage.image!
+                self.adminTableViewVC.entreeDishes[self.selectedRowInt].info = self.selectedDishInfo.text!
                 
                 //Reload admin table view
                 self.adminTableViewVC.dishesTableView.reloadData()
@@ -82,6 +86,7 @@ class EditDishViewController: UIViewController, UIImagePickerControllerDelegate,
                 self.adminTableViewVC.mainDishes[self.selectedRowInt].name = self.selectedDishName.text!
                 self.adminTableViewVC.mainDishes[self.selectedRowInt].price = Double(self.selectedDishPrice.text!)!
                 self.adminTableViewVC.mainDishes[self.selectedRowInt].image = self.selectedDishImage.image!
+                 self.adminTableViewVC.mainDishes[self.selectedRowInt].info = self.selectedDishInfo.text!
                 
                 //Reload admin table view
                 self.adminTableViewVC.dishesTableView.reloadData()
@@ -94,6 +99,7 @@ class EditDishViewController: UIViewController, UIImagePickerControllerDelegate,
                 self.adminTableViewVC.dessertDishes[self.selectedRowInt].name = self.selectedDishName.text!
                 self.adminTableViewVC.dessertDishes[self.selectedRowInt].price = Double(self.selectedDishPrice.text!)!
                 self.adminTableViewVC.dessertDishes[self.selectedRowInt].image = self.selectedDishImage.image!
+                self.adminTableViewVC.dessertDishes[self.selectedRowInt].info = self.selectedDishInfo.text!
                 
                 //Reload admin table view
                 self.adminTableViewVC.dishesTableView.reloadData()

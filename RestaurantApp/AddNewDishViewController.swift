@@ -23,6 +23,7 @@ class AddNewDishViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var newDishName: UITextField!
     @IBOutlet weak var newDishCategory: UISegmentedControl!
     @IBOutlet weak var newDishPrice: UITextField!
+    @IBOutlet weak var newDishInfo: UITextView!
     
     // Opens iphone photo library when camera icon is tapped
     @IBAction func cameraBtn(_ sender: Any) {
@@ -55,7 +56,7 @@ class AddNewDishViewController: UIViewController, UIImagePickerControllerDelegat
         var newDish : Dish
         if (newDishName.text!.isEmpty == false) {
             // Instatiate a new Dish object
-            newDish = Dish(image: newDishImage.image!, name: newDishName.text!, category: selectedCategory!, qty: 0, price: convertedPrice, isSelected: false)
+            newDish = Dish(image: newDishImage.image!, name: newDishName.text!, category: selectedCategory!, qty: 0, price: convertedPrice, isSelected: false, info : newDishInfo.text!)
             // Add newDish object to dishes array in AdminDishesTableViewController
             if selectedCategory == "Entrée" {
                 adminTableViewVC.entreeDishes.append(newDish)
