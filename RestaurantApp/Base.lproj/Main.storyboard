@@ -104,6 +104,11 @@
                             <color key="barTintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             <items>
                                 <navigationItem title="Menu Dishes" id="QVm-Oq-X8B">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="organize" id="iJG-aY-6az">
+                                        <connections>
+                                            <action selector="viewStaffOrders:" destination="37I-pI-R3g" id="mGh-Rp-pJC"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="sPU-Hr-QBF">
                                         <connections>
                                             <action selector="addBtn:" destination="37I-pI-R3g" id="Rg3-Xn-cFL"/>
@@ -186,11 +191,12 @@
                         <outlet property="dishesTableView" destination="mCX-g5-sgU" id="Mie-rC-ACx"/>
                         <segue destination="s4O-94-EyY" kind="show" identifier="addNewDishSegue" id="GaE-Wo-bCJ"/>
                         <segue destination="eWj-eZ-i7O" kind="show" identifier="editDishSegue" id="hoS-6U-qXZ"/>
+                        <segue destination="v7w-bZ-eQ0" kind="show" identifier="viewStaffOrders" id="qMT-yu-OaO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35a-jk-CM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="556"/>
+            <point key="canvasLocation" x="2004" y="550"/>
         </scene>
         <!--Edit Dish View Controller-->
         <scene sceneID="4fp-93-XWg">
@@ -1326,6 +1332,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wRa-20-wej"/>
-        <segue reference="NdI-Uw-bao"/>
+        <segue reference="qMT-yu-OaO"/>
     </inferredMetricsTieBreakers>
 </document>
